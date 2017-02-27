@@ -1,0 +1,21 @@
+1) El usuario tiene derecho a ver el progreso de la orden por medio del order id.
+
+3) No devoluciones, solo credito para comprar otros producto.
+
+4) Motras que producto se esta vendiendo mas por cada temporada.
+
+5) Ver frequencia de venta por producto a traves de filtros que donde se seleccione el tiempo.
+
+6) Ver que productos se venden por frecuencia.
+
+7) Ver cuando sale o entra una orden.
+
+8) Cuanto se demora un producto en llegar: a) Main warehouse, b)Distributing warehouse, c)clients.
+
+10) Que producto se vende mas por regiones.
+
+11) Ver las ordenes de companias.
+
+12) Ver frequencia de ordenes que estan en promocion.
+
+Note: Asegurar de anadir info por ciudad y estado de comprar para evitar ventas fuera del pais.
