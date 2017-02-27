@@ -30,5 +30,6 @@
 
 16) cuando un producto es sacado del inventario para vender mandar un email confirmando el despacho del producto 
 
-17)soportar devolucion de una orden id para saber que ell producto si era de nosotros .   
+17)soportar devolucion de una orden id para saber que el producto si era de nosotros
 
+18) si el inventario no se vende entre unos meses el systemas no avisa para ser mandado al deal page 
