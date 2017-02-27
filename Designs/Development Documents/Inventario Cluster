@@ -1,0 +1,32 @@
+1) La plataforma de inventario va a mantener la contabilidad de el producto.
+
+2) El numero de seriado va a estar compuesto por product id y numero de seriado del producto.
+
+3) La plataforma indica Como enontrar el cada elemento de inventario.
+
+4) Como protejer eh imperdir el robo de inventario.
+
+5) La plataforma indica en que warehouse se encuentra el producto que este conectado con cada orden.
+
+6) La base de datos contiene: a)precio de fabrica, b)precio logistico, c)precio de venta, d)ganancia, e) tarifa.
+
+7) La base de datos indica donde esta situado cada elemento.
+
+8) La plataforma manda un una alerta al correo electronico en caso que el producto este bajo un limite.
+
+9) La plataforma envia una alerta cuando una carga haya sido registrada en el systema.
+
+10) La plataforma facilita encontrar cada elemento por numero de seriado.
+
+11) La plataforma envia una alerta cuando la columna season_reup_alert_days se confirme. (Esta columna indica temporadas
+en las que el producto puede que este en demanda).
+
+12) Cada producto contiene una columna donde indica el porcentage de descuentos de promocion.
+
+13) Cada vez que la plataforma sugiere una promocion, enviara un correo electronico que debera ser aprovado por un oficial.
+
+14) Cuando un elemento es vendido y sale del inventario, la columna available devera ser marcada true.
+
+15) Soportar devolucion de una orden en la cual el numero de seriado tiene que ser confirmado.
+
+16) Si el element no se vende en determinado tiempo, (over_stock_days), el systema sugiere ser mandado al deal page.
