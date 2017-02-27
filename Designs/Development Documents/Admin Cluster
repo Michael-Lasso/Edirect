@@ -1,11 +1,11 @@
 
-1)Puede ver todos los items de cada producto, pero el resto de informacion es inaccesible.
+1) Puede ver todos los items de cada producto, pero el resto de informacion es inaccesible.
 
-2)Puede recivir, registrar inventario, enviar, registrar devoluciones, y registrar elementos deficientes.
+2) Puede recivir, registrar inventario, enviar, registrar devoluciones, y registrar elementos deficientes.
 
-3)Es el responsable que no falte productos. Puede hacer pedidos, pero solo pueden ser aprovados por oficiales.
+3) Es el responsable que no falte productos. Puede hacer pedidos, pero solo pueden ser aprovados por oficiales.
 
-4)Cada adminastrador es responsable por un warehouse.
+4) Cada adminastrador es responsable por un warehouse.
 
-5)Alerta por correo electronico de productos deficientes o que hagan falta a administrador y oficiales. 
+5) Alerta por correo electronico de productos deficientes o que hagan falta a administrador y oficiales. 
 
