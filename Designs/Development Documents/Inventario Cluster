@@ -25,7 +25,7 @@ en las que el producto puede que este en demanda).
 
 13) Cada vez que la plataforma sugiere una promocion, enviara un correo electronico que debera ser aprovado por un oficial.
 
-14) Cuando un elemento es vendido y sale del inventario, la columna available devera ser marcada true.
+14) Cuando un elemento es vendido y sale del inventario, la columna available devera ser marcada false.
 
 15) Soportar devolucion de una orden en la cual el numero de seriado tiene que ser confirmado.
 
