@@ -1,0 +1,17 @@
+1. Add a dual NoSQL for cart orders and wishlist.
+
+2. At some point, you'll want to consider having separate tables to dynamically generate part 
+of the descriptions for certain categories of items. For example, we know all books have a 
+unique synopsis - that will be in the description column of your Product table. However, 
+all books also share certain types of properties, such as author, number of pages, publisher, 
+publication date.  So you could have a Book Detail table connected to your Categories table 
+with each of those fields. Using those fields, you could dynamically generate part of the 
+description - this will allow you to better standardize the look of your item listings 
+(you can guarantee that every single book listing will have at least those pieces of detail).
+
+3. It's probably too early for this, but at some point you'll want to consider a browsing history 
+table connected to the User table. This will allow you to display recommendations to the user 
+based on their previous browsing history (you can use order history for this as well.
+
+4. I'm not quite sure how you sync this up to work with PayPal, but at some point 
+(perhaps far into the future) you'll want to consider giving users the option to pay with gift cards.
