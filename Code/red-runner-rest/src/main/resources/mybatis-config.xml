@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
 
-       Copyright 2015-2016 the original author or authors.
+       Copyright 2015-2017 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -16,11 +16,15 @@
        limitations under the License.
 
 -->
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="sample.mybatis.mapper.CityMapper">
-    <select id="selectCityById" resultType="City">
-        select name from city where id = #{id}
-    </select>
-</mapper>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="com.redrunner.connector.domain"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="com/redrunner/connector/mapper/CityMapper.xml"/>
+        <mapper resource="com/redrunner/connector/mapper/HotelMapper.xml"/>
+    </mappers>
+</configuration>
