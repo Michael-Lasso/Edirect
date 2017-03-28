@@ -1,9 +1,11 @@
-package online.edirect.beans;
+package com.journaldev.jsf.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import com.journaldev.jsf.util.DataConnect;
 
 public class LoginDAO {
 
@@ -13,7 +15,7 @@ public class LoginDAO {
 
 		try {
 			con = DataConnect.getConnection();
-			ps = con.prepareStatement("Select uname, password from Users where uname = ? and password = ?");
+			ps = con.prepareStatement("Select username, password from manager_account where username = ? and password = ?");
 			ps.setString(1, user);
 			ps.setString(2, password);
 

@@ -80,14 +80,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-		<!-- SIMULATOR Dependencies -->
-		<!-- Pitney Bowes -->
-		<!-- https://mvnrepository.com/artifact/org.apache.geronimo.specs/geronimo-servlet_3.0_spec -->
-		<dependency>
-			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-servlet_3.0_spec</artifactId>
-			<version>1.0</version>
-		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.glassfish/javax.json -->
 		<dependency>

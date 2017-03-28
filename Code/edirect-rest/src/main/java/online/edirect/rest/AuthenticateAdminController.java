@@ -39,10 +39,10 @@ import online.edirect.rest.security.UserNotFoundException;
 
 @Component
 @RestController
-@RequestMapping("/redrunner")
-class RedRunnerRestController {
+@RequestMapping("/authenticate")
+class AuthenticateAdminController {
 
-	static Logger log = Logger.getLogger(RedRunnerRestController.class);
+	static Logger log = Logger.getLogger(AuthenticateAdminController.class);
 
 	@Autowired
 	private StreetIntersectionRepository streetIntersectionRepository;

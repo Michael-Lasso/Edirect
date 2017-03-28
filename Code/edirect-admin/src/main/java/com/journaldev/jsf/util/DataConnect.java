@@ -1,4 +1,4 @@
-package online.edirect.beans;
+package com.journaldev.jsf.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,11 +9,11 @@ public class DataConnect {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/cardb", "pankaj", "pankaj123");
+					"jdbc:mysql://newhaven.c2ynl98zxc2y.us-east-1.rds.amazonaws.com:3306/Edirect", "newHaven",
+					"newHaven");
 			return con;
 		} catch (Exception ex) {
-			System.out.println("Database.getConnection() Error -->"
-					+ ex.getMessage());
+			System.out.println("Database.getConnection() Error -->" + ex.getMessage());
 			return null;
 		}
 	}

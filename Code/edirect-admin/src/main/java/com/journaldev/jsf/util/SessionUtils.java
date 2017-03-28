@@ -1,4 +1,4 @@
-package online.edirect.beans;
+package com.journaldev.jsf.util;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;

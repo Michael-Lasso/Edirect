@@ -18,7 +18,7 @@ public class SpringRestClient {
 	// http://localhost:8080/red-runner-rest
 	// http://lokiz-rest.us-east-1.elasticbeanstalk.com
 
-	private static final String URL = "http://localhost:8080/red-runner-rest";
+	private static final String URL = "http://localhost:8080/edirect-rest";
 
 	public static final String REST_SERVICE_URI = URL;
 
@@ -86,7 +86,8 @@ public class SpringRestClient {
 		RestTemplate restTemplate = new RestTemplate();
 
 		HttpEntity<Object> request = new HttpEntity<Object>(redrunner, getHeaders());
-		restTemplate.postForLocation(REST_SERVICE_URI + "/redrunner/" + QPM_ACCESS_TOKEN + tokenInfo.getAccess_token(),
+		
+		restTemplate.postForLocation(REST_SERVICE_URI + "/authenticate/" + QPM_ACCESS_TOKEN + tokenInfo.getAccess_token(),
 				request, RedRunner.class);
 	}
 

@@ -1,4 +1,4 @@
-package online.edirect.beans;
+package com.journaldev.jsf.beans;
 
 import java.io.Serializable;
 
@@ -8,6 +8,8 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
+import com.journaldev.jsf.dao.LoginDAO;
+import com.journaldev.jsf.util.SessionUtils;
 
 @ManagedBean
 @SessionScoped
@@ -45,11 +47,11 @@ public class Login implements Serializable {
 
 	//validate login
 	public String validateUsernamePassword() {
-		boolean valid = true;//LoginDAO.validate(user, pwd);
+		boolean valid = LoginDAO.validate(user, pwd);
 		if (valid) {
 			HttpSession session = SessionUtils.getSession();
-			session.setAttribute("username", "micha");
-			return "admin";
+			session.setAttribute("username", user);
+			return "manage";
 		} else {
 			FacesContext.getCurrentInstance().addMessage(
 					null,
@@ -64,6 +66,6 @@ public class Login implements Serializable {
 	public String logout() {
 		HttpSession session = SessionUtils.getSession();
 		session.invalidate();
-		return "login";
+		return "/login";
 	}
 }
