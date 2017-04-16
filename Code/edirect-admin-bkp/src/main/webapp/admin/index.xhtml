@@ -31,6 +31,33 @@
 </h:head>
 <h:body>
 	<ui:include src="/templates/header.xhtml" />
-	<ui:include src="/templates/content.xhtml" />
+	<p:growl id="growl" life="2000" />
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ui:include src="/templates/leftMenu.xhtml" />
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<p:panel layout="block">
+					<h:panelGroup id="content" layout="block">
+						<ui:fragment rendered="#{sideMenu.page == '1' }">
+							<ui:include src="/templates/overview.xhtml" />
+						</ui:fragment>
+						<ui:fragment rendered="#{sideMenu.page == '2'}">
+							<ui:include src="/templates/inventory.xhtml" />
+						</ui:fragment>
+						<ui:fragment rendered="#{sideMenu.page == '3'}">
+							<ui:include src="/templates/profits.xhtml" />
+						</ui:fragment>
+						<ui:fragment rendered="#{sideMenu.page == '4'}">
+							<ui:include src="/templates/alerts.xhtml" />
+						</ui:fragment>
+					</h:panelGroup>
+				</p:panel>
+			</div>
+		</div>
+	</div>
+
 </h:body>
 </html>

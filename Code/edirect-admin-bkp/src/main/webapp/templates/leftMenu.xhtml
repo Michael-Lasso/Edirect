@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition>
+
+	<h:form>
+		
+			<ul class="nav nav-sidebar">
+				<li><p:commandLink value="Overview"
+						actionListener="#{sideMenu.navigate('1')}" update="content"></p:commandLink></li>
+				<li><p:commandLink value="Inventory"
+						actionListener="#{sideMenu.navigate('2')}" update="content" /></li>
+				<li><h:commandLink value="Profits"
+						action="#{sideMenu.navigate('3')}" /></li>
+				<li><h:commandLink value="Alerts"
+						action="#{sideMenu.navigate('4')}" /></li>
+			</ul>
+		
+	</h:form>
+</ui:composition>
+</html>
+

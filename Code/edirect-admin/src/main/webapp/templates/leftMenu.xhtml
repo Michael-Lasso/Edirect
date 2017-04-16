@@ -1,15 +1,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition>
 
-	<ul class="nav nav-sidebar">
-		<li class="active"><a href="#">Overview</a></li>
-		<li><a href="#">Inventory</a></li>
-		<li><a href="#">Orders</a></li>
-		<li><a href="#">Profits</a></li>
-		<li><a href="#">Alerts</a></li>
-	</ul>
+	<h:form enctype="multipart/form-data">
+		<f:ajax render=":content">
+			<ul class="nav nav-sidebar">
+				<li><h:commandLink value="Overview"
+						action="#{sideMenu.setPage('overview')}" /></li>
+				<li><h:commandLink value="Inventory"
+						action="#{sideMenu.setPage('inventory')}" /></li>
+				<li><h:commandLink value="Profits"
+						action="#{sideMenu.setPage('profits')}" /></li>
+				<li><h:commandLink value="Alerts"
+						action="#{sideMenu.setPage('alerts')}" /></li>
+			</ul>
+		</f:ajax>
+	</h:form>
 </ui:composition>
 </html>
 
