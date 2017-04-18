@@ -38,7 +38,7 @@ public class SideMenu implements Serializable {
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		}
 		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+			FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
