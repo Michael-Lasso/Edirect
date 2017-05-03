@@ -1,8 +1,11 @@
-security:
-  user:
-    name: admin
-    password: admin
-    role: ADMIN
-logging:
-  level:
-    org.springframework.security: DEBUG
+application:
+  clients:
+    - username: micha32
+      password: admin
+      roles: ADMIN
+    - username: josegomez
+      password: admin
+      roles: READ,WRITE
+    - username: guest
+      password: guest
+      roles: USER
