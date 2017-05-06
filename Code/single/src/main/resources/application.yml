@@ -9,3 +9,7 @@ application:
     - username: guest
       password: guest
       roles: USER
+security:
+  basic:
+    enabled: true
+      

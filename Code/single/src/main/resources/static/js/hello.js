@@ -8,6 +8,10 @@ angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider, $httpProv
 		templateUrl : 'login.html',
 		controller : 'navigation',
 		controllerAs: 'controller'
+	}).when('/forms', {
+		templateUrl : 'forms.html',
+		controller : 'forms',
+		controllerAs: 'controller'
 	}).otherwise('/');
 
 	$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -68,7 +72,7 @@ angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider, $httpProv
 			self.logout = function() {
 				$http.post('logout', {}).finally(function() {
 					$rootScope.authenticated = false;
-					$location.path("/");
+					$location.path("/login");
 				});
 			}
 
@@ -77,4 +81,35 @@ angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider, $httpProv
 	$http.get('/single/resource/').then(function(response) {
 		self.greeting = response.data;
 	})
+}).controller('forms', function($http) {
+	var self = this;
+	$http.get('/single/resource/').then(function(response) {
+		self.greeting = response.data;
+	})
+});
+
+function htmlbodyHeightUpdate(){
+	var height3 = $( window ).height()
+	var height1 = $('.nav').height()+50
+	height2 = $('.main').height()
+	if(height2 > height3){
+		$('html').height(Math.max(height1,height3,height2)+10);
+		$('body').height(Math.max(height1,height3,height2)+10);
+	}
+	else
+	{
+		$('html').height(Math.max(height1,height3,height2));
+		$('body').height(Math.max(height1,height3,height2));
+	}
+	
+}
+$(document).ready(function () {
+	htmlbodyHeightUpdate()
+	$( window ).resize(function() {
+		htmlbodyHeightUpdate()
+	});
+	$( window ).scroll(function() {
+		height2 = $('.main').height()
+			htmlbodyHeightUpdate()
+	});
 });
