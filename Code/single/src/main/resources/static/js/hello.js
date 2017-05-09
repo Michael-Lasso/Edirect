@@ -8,9 +8,21 @@ angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider, $httpProv
 		templateUrl : 'login.html',
 		controller : 'navigation',
 		controllerAs: 'controller'
-	}).when('/forms', {
-		templateUrl : 'forms.html',
-		controller : 'forms',
+	}).when('/modify', {
+		templateUrl : 'modify.html',
+		controller : 'modify',
+		controllerAs: 'controller'
+	}).when('/products', {
+		templateUrl : 'products.html',
+		controller : 'products',
+		controllerAs: 'controller'
+	}).when('/orders', {
+		templateUrl : 'orders.html',
+		controller : 'orders',
+		controllerAs: 'controller'
+	}).when('/upload', {
+		templateUrl : 'upload.html',
+		controller : 'upload',
 		controllerAs: 'controller'
 	}).otherwise('/');
 
@@ -81,9 +93,14 @@ angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider, $httpProv
 	$http.get('/single/resource/').then(function(response) {
 		self.greeting = response.data;
 	})
-}).controller('forms', function($http) {
+}).controller('products', function($http) {
 	var self = this;
-	$http.get('/single/resource/').then(function(response) {
+	$http.get('/single/product').then(function(response) {
+		self.greeting = response.data;
+	})
+}).controller('orders', function($http) {
+	var self = this;
+	$http.get('/single/order').then(function(response) {
 		self.greeting = response.data;
 	})
 });

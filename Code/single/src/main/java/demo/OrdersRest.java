@@ -1,6 +1,5 @@
 package demo;
 
-import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -10,19 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class DashboardRest {
-
-	@RequestMapping("/user")
-	public Principal user(Principal user) {
-		return user;
-	}
+public class OrdersRest {
 
 	 @PreAuthorize("hasAuthority('ADMIN')")
-	@RequestMapping("/resource")
+	@RequestMapping("/order")
 	public Map<String, Object> home() {
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("id", UUID.randomUUID().toString());
-		model.put("content", "Dashboard");
+		model.put("content", "Order");
 		return model;
 	}
 }
