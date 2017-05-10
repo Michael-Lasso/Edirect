@@ -54,6 +54,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 		</dependency>
+
+		<!-- mybatis -->
+		<dependency>
+			<groupId>online.edirect.connector</groupId>
+			<artifactId>edirect-connector</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<properties>

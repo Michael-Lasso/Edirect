@@ -8,10 +8,15 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.redrunner.connector.mapper.HotelMapper;
+
 @RestController
 public class OrdersRest {
 
-	 @PreAuthorize("hasAuthority('ADMIN')")
+	// @Autowired
+	private HotelMapper hotelMapper;
+
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping("/order")
 	public Map<String, Object> home() {
 		Map<String, Object> model = new HashMap<String, Object>();
