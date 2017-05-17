@@ -15,7 +15,10 @@
  */
 package online.edirect.connector.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import online.edirect.connector.domain.Category;
@@ -26,6 +29,7 @@ import online.edirect.connector.domain.City;
  */
 @Component
 public class CityDao {
+	public static final Logger log = Logger.getLogger(CityDao.class);
 
 	private final SqlSession sqlSession;
 
@@ -39,6 +43,58 @@ public class CityDao {
 
 	public Category findCategoryById(long id) {
 		return this.sqlSession.selectOne("selectCityById", id);
+	}
+
+	/**
+	 * Insert query with queryID in Datasource.xml. Pass null as the second
+	 * argument if no parameters are needed for the query
+	 * 
+	 * @param queryID
+	 * @param criteria
+	 * @throws Exception
+	 */
+	public void insertQuery(String queryID, Object criteria) throws Exception {
+		log.info("-----------------------------------------------");
+		log.info("Insert query: " + queryID);
+		log.info("Rows affected: " + this.sqlSession.insert(queryID, criteria));
+		log.info("Successful query");
+		log.info("-----------------------------------------------\n");
+	}
+
+	/**
+	 * Insert query with queryID in Datasource.xml. Pass null as the second
+	 * argument if no parameters are needed for the query
+	 * 
+	 * @param queryID
+	 * @param criteria
+	 * @throws Exception
+	 */
+	public void updateQuery(String queryID, Object criteria) throws Exception {
+		log.info("-----------------------------------------------");
+		log.info("Update query: " + queryID);
+		log.info("Rows affected: " + this.sqlSession.update(queryID, criteria));
+		log.info("Successful query");
+		log.info("-----------------------------------------------\n");
+	}
+
+	/**
+	 * Executes query with queryId in Datasource.xml
+	 * 
+	 * @param queryId
+	 * @param criteria
+	 * @return
+	 */
+	public <T> List<T> getList(String queryId, Object criteria) throws Exception {
+		log.info("-----------------------------------------------");
+		log.info("List query: " + queryId);
+		List<T> list = this.sqlSession.selectList(queryId, criteria);
+		log.info("Rows affected: " + list.size());
+		log.info("-----------------------------------------------\n");
+		return list;
+	}
+
+	public void dropTempTable(String queryId, Object criteria) throws Exception {
+		this.sqlSession.delete(queryId, criteria);
 	}
 
 }

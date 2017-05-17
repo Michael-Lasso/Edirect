@@ -1,4 +1,4 @@
-package online.edirect;
+package online.edirect.utils;
 
 public class ApplicationClient {
 	private String username;

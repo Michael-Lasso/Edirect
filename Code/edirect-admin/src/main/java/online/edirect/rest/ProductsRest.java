@@ -1,4 +1,4 @@
-package online.edirect;
+package online.edirect.rest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +19,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import online.edirect.connector.dao.CityDao;
 import online.edirect.connector.domain.Category;
-import online.edirect.connector.domain.City;
 import online.edirect.connector.domain.Hotel;
 import online.edirect.connector.mapper.HotelMapper;
 import online.edirect.utils.CustomErrorType;

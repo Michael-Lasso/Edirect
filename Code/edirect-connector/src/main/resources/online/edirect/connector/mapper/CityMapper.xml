@@ -7,4 +7,8 @@
 	<select id="selectCityById" resultType="City">
 		select name from city where id = #{id}
 	</select>
+	<select id="selectAllCities" resultType="Hotel" parameterType="java.lang.Integer">
+		select * from hotel where city >= #{criteria}
+	</select>
+	
 </mapper>

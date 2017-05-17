@@ -123,7 +123,7 @@ angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider, $httpProv
  				   'Content-Type': "application/json"
  				 },
  				 data: { 
-	 					 city:23, 
+	 					 city:$scope.city, 
 	 					 name: $scope.name,
 	 		             address: $scope.address,
 	 		             zip: $scope.zip

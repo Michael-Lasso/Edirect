@@ -45,7 +45,7 @@ public class SampleXmlApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// System.out.println(this.cityDao.selectCityById(1));
 		// System.out.println(this.hotelMapper.selectByCityId(1));
-		List<Hotel> hotels = hotelMapper.allHotels();
+		List<Hotel> hotels = cityDao.getList("selectAllCities", 1);
 		Hotel hotel = new Hotel();
 		hotel.setCity(2L);
 		hotel.setName("Stamford");

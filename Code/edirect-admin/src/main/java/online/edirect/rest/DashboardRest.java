@@ -1,4 +1,4 @@
-package online.edirect;
+package online.edirect.rest;
 
 import java.security.Principal;
 import java.util.HashMap;

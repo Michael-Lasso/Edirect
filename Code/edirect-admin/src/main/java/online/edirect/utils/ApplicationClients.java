@@ -1,4 +1,4 @@
-package online.edirect;
+package online.edirect.utils;
 
 import java.util.ArrayList;
 import java.util.List;
