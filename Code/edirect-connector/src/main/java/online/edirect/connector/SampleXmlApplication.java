@@ -21,7 +21,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import online.edirect.connector.dao.CityDao;
+import online.edirect.connector.dao.ObjectDao;
 import online.edirect.connector.domain.Hotel;
 import online.edirect.connector.mapper.HotelMapper;
 
@@ -32,11 +32,10 @@ public class SampleXmlApplication implements CommandLineRunner {
 		SpringApplication.run(SampleXmlApplication.class, args);
 	}
 
-	private final CityDao cityDao;
-
+	private final ObjectDao cityDao;
 	private final HotelMapper hotelMapper;
 
-	public SampleXmlApplication(CityDao cityDao, HotelMapper hotelMapper) {
+	public SampleXmlApplication(ObjectDao cityDao, HotelMapper hotelMapper) {
 		this.cityDao = cityDao;
 		this.hotelMapper = hotelMapper;
 	}

@@ -24,7 +24,7 @@
         <package name="online.edirect.connector.domain"/>
     </typeAliases>
     <mappers>
-        <mapper resource="online/edirect/connector/mapper/CityMapper.xml"/>
+        <mapper resource="online/edirect/connector/mapper/CreateMapper.xml"/>
         <mapper resource="online/edirect/connector/mapper/HotelMapper.xml"/>
     </mappers>
 </configuration>

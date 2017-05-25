@@ -8,7 +8,8 @@ CREATE TABLE manager_account (
 
 CREATE TABLE category (
     category_id INTEGER NOT NULL AUTO_INCREMENT,
-    name VARCHAR(30) NOT NULL,
+    category_name VARCHAR(30) NOT NULL,
+	description VARCHAR(255),
     PRIMARY KEY (`category_id`)
 )  ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=LATIN1;
 
@@ -16,7 +17,7 @@ CREATE TABLE product (
     product_id BIGINT NOT NULL AUTO_INCREMENT,
     category_id INTEGER NOT NULL,
     product_name VARCHAR(50) NOT NULL,
-    description BLOB,
+    description VARCHAR(2000),
     featured_product BOOLEAN,
     company_name VARCHAR(35),
     buy_price DOUBLE NOT NULL,

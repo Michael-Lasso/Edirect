@@ -1,20 +1,96 @@
 package online.edirect.connector.domain;
 
+import java.util.Date;
+
+import com.mysql.jdbc.Blob;
+
 public class Product {
+	private long product_id;
+	private int category_id;
 	private String product_name;
-	private java.sql.Blob description;
+	private String description;
+	private boolean featured_product;
 	private String company_name;
 	private double buy_price;
 	private double sell_price;
+	private boolean packaging;
 	private String video_link;
+	private int treshold_max;
+	private int treshold_min;
 	private double weight;
 	private String dimension;
 	private double logistic_price;
-	private java.util.Date featured_product_date;
-	private java.util.Date update_date;
+	private Date featured_product_date;
+	private Date update_date;
 	private double tarif;
+	private int over_stock_days;
 	private double percentage_deal;
-	private java.util.Date season_reup_alert_date;
+	private int season_reup_alert_days;
+	private Date season_reup_alert_date;
+
+	public long getProduct_id() {
+		return product_id;
+	}
+
+	public void setProduct_id(long product_id) {
+		this.product_id = product_id;
+	}
+
+	public int getCategory_id() {
+		return category_id;
+	}
+
+	public void setCategory_id(int category_id) {
+		this.category_id = category_id;
+	}
+
+	public boolean isFeatured_product() {
+		return featured_product;
+	}
+
+	public void setFeatured_product(boolean featured_product) {
+		this.featured_product = featured_product;
+	}
+
+	public boolean isPackaging() {
+		return packaging;
+	}
+
+	public void setPackaging(boolean packaging) {
+		this.packaging = packaging;
+	}
+
+	public int getTreshold_max() {
+		return treshold_max;
+	}
+
+	public void setTreshold_max(int treshold_max) {
+		this.treshold_max = treshold_max;
+	}
+
+	public int getTreshold_min() {
+		return treshold_min;
+	}
+
+	public void setTreshold_min(int treshold_min) {
+		this.treshold_min = treshold_min;
+	}
+
+	public int getOver_stock_days() {
+		return over_stock_days;
+	}
+
+	public void setOver_stock_days(int over_stock_days) {
+		this.over_stock_days = over_stock_days;
+	}
+
+	public int getSeason_reup_alert_days() {
+		return season_reup_alert_days;
+	}
+
+	public void setSeason_reup_alert_days(int season_reup_alert_days) {
+		this.season_reup_alert_days = season_reup_alert_days;
+	}
 
 	public String getProduct_name() {
 		return product_name;
@@ -24,11 +100,11 @@ public class Product {
 		this.product_name = product_name;
 	}
 
-	public java.sql.Blob getDescription() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(java.sql.Blob description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -127,4 +203,18 @@ public class Product {
 	public void setSeason_reup_alert_date(java.util.Date season_reup_alert_date) {
 		this.season_reup_alert_date = season_reup_alert_date;
 	}
+
+	@Override
+	public String toString() {
+		return "product_id: " + product_id + ", category_id: " + category_id + ", product_name: " + product_name
+				+ ", description: " + description + ", featured_product: " + featured_product + ", company_name: "
+				+ company_name + ", buy_price: " + buy_price + ", sell_price: " + sell_price + ", packaging: " + packaging
+				+ ", video_link: " + video_link + ", treshold_max: " + treshold_max + ", treshold_min: " + treshold_min
+				+ ", weight: " + weight + ", dimension: " + dimension + ", logistic_price: " + logistic_price
+				+ ", featured_product_date: " + featured_product_date + ", update_date: " + update_date + ", tarif: "
+				+ tarif + ", over_stock_days: " + over_stock_days + ", percentage_deal: " + percentage_deal
+				+ ", season_reup_alert_days: " + season_reup_alert_days + ", season_reup_alert_date: "
+				+ season_reup_alert_date;
+	}
+
 }

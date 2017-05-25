@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="online.edirect.connector.mapper.ObjectDao">
+	<select id="select_category" resultType="java.lang.Integer"
+		parameterType="java.lang.String">
+	<![CDATA[
+		select category_id from category where category_name = #{criteria}
+		]]>
+	</select>
+
+	<select id="retrieve_all_categories" resultType="Category">
+	<![CDATA[
+		select * from category
+		]]>
+	</select>
+
+
+</mapper>

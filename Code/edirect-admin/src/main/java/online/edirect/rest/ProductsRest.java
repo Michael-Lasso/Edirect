@@ -17,13 +17,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import online.edirect.connector.dao.CityDao;
+import online.edirect.connector.dao.ObjectDao;
 import online.edirect.connector.domain.Category;
 import online.edirect.connector.domain.Hotel;
 import online.edirect.connector.mapper.HotelMapper;
 import online.edirect.utils.CustomErrorType;
+import online.edirect.utils.QueryId;
 
 @RestController
+@RequestMapping("/product")
 public class ProductsRest {
 	public static final Logger logger = Logger.getLogger(ProductsRest.class);
 
@@ -31,7 +33,7 @@ public class ProductsRest {
 	private HotelMapper hotelMapper;
 
 	@Autowired
-	private CityDao dao;
+	private ObjectDao dao;
 
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping("/product")
@@ -45,7 +47,7 @@ public class ProductsRest {
 	// -------------------Create a
 	// User-------------------------------------------
 
-	@RequestMapping(value = "/product/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public ResponseEntity<?> createUser(@RequestBody Hotel user, UriComponentsBuilder ucBuilder) {
 		logger.info("Creating User : {" + user + "}");
 
@@ -56,9 +58,15 @@ public class ProductsRest {
 			// user.getName() + " already exist."),
 			// HttpStatus.CONFLICT);
 		}
-//		Category cat = new Category();
-		hotelMapper.saveHotel(user);
-//		hotelMapper.saveCategory(cat);
+		// Category cat = new Category();
+		// hotelMapper.saveHotel(user);
+		logger.info("Success rest");
+		try {
+			dao.insertQuery(QueryId.TEST_QUERY, user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// hotelMapper.saveCategory(cat);
 		logger.info("Created: " + user.toString());
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/api/product/{id}").buildAndExpand(user.getCity()).toUri());
@@ -69,10 +77,10 @@ public class ProductsRest {
 	// ------------------------------------------------
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<?> updateUser(@PathVariable("id") long id, @RequestBody Category category) {
+	public ResponseEntity<?> updateUser(@PathVariable("id") long id, @RequestBody Category category) throws Exception {
 		logger.info("Updating User with id {" + id + "}");
 
-		Category currentUser = dao.findCategoryById(id);
+		Category currentUser = dao.getEdirectRecord("test", id);
 
 		if (currentUser == null) {
 			logger.error("Unable to update. User with id {} not found: " + id);
@@ -80,9 +88,14 @@ public class ProductsRest {
 					new CustomErrorType("Unable to upate. User with id " + id + " not found."), HttpStatus.NOT_FOUND);
 		}
 
-		currentUser.setCategoryName(category.getCategoryName());
+		currentUser.setCategory_name(category.getCategory_name());
 
-		hotelMapper.saveCategory(currentUser);
+		try {
+			dao.insertQuery(QueryId.TEST_QUERY, currentUser);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return new ResponseEntity<Category>(currentUser, HttpStatus.OK);
 	}
 	//
