@@ -8,9 +8,14 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link href="css/angular-bootstrap.css" rel="stylesheet">
-<link href="js/admin.css" rel="stylesheet">
-<script src="js/angular-bootstrap.js" type="text/javascript"></script>
-<script src="js/hello.js"></script>
+<link href="scripts/admin.css" rel="stylesheet">
+<script src="scripts/angular-bootstrap.js" type="text/javascript"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/modify.js"></script>
+<script src="scripts/controllers/login.js"></script>
+<script src="scripts/controllers/orders.js"></script>
+<script src="scripts/controllers/products.js"></script>
+<script src="scripts/controllers/upload.js"></script>
 
 
 <!--  -->
@@ -28,9 +33,10 @@
 <script src="vendor/raphael/raphael.min.js"></script>
 <script src="data/morris-data.js"></script>
 <script src="dist/js/sb-admin-2.js"></script>
-<link href="js/admin.css" rel="stylesheet">
-<script src="js/forms.js"></script>
-<!--  -->
+<link href="scripts/admin.css" rel="stylesheet">
+<script src="scripts/js/forms.js"></script>
+<!-- 
+ -->
 
 <link rel="apple-touch-icon" sizes="180x180"
 	href="favicons/apple-touch-icon.png" />
@@ -49,8 +55,8 @@
 }
 </style>
 </head>
-
-<body ng-app="hello" ng-cloak class="ng-cloak"
+<!-- to fix rendering issue try ng-bind from https://www.youtube.com/watch?v=ZhfUv0spHCY min 13. -->
+<body ng-app="edirect" ng-cloak class="ng-cloak"
 	ng-init="controller.greeting.content='Dashboard'">
 	<div ng-show="!authenticated">
 		<nav class="navbar navbar-default navbar-static-top" role="navigation"

@@ -17,20 +17,17 @@ package online.edirect.rest;
 
 import org.springframework.hateoas.ResourceSupport;
 
-/**
- * @author Greg Turnquist
- */
-// tag::code[]
-class IntersectionResource extends ResourceSupport {
 
-	private final Object street_intersection;
+class Edirect extends ResourceSupport {
 
-	public IntersectionResource(Object bookmark) {
-		this.street_intersection = bookmark;
+	private final Object item;
+
+	public Edirect(Object item) {
+		this.item = item;
 	}
 
-	public Object getBookmark() {
-		return street_intersection;
+	public Object getItem() {
+		return item;
 	}
 }
 // end::code[]

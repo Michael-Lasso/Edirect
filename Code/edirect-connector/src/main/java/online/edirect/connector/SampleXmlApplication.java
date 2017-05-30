@@ -19,13 +19,12 @@ import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import online.edirect.connector.dao.ObjectDao;
 import online.edirect.connector.domain.Hotel;
 import online.edirect.connector.mapper.HotelMapper;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class SampleXmlApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {

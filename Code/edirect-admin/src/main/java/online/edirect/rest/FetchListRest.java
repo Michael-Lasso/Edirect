@@ -1,6 +1,8 @@
 package online.edirect.rest;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
@@ -13,6 +15,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -36,10 +39,14 @@ public class FetchListRest {
 	 */
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/category", method = RequestMethod.GET)
-	public Resources<IntersectionResource> createCategory() throws Exception {
-		List<IntersectionResource> bookmarkResourceList = dao.getList(QueryId.RETRIEVE_ALL_CATEGORIES, null).stream()
-				.map(IntersectionResource::new).collect(Collectors.toList());
-		return new Resources<>(bookmarkResourceList);
+	public  Map<String, Object> createCategory() throws Exception {
+		List<Edirect> categoryList = dao.getList(QueryId.RETRIEVE_ALL_CATEGORIES, null).stream()
+				.map(Edirect::new).collect(Collectors.toList());
+		Map<String, Object> model = new HashMap<String, Object>();
+		
+		model.put("content", dao.getList(QueryId.RETRIEVE_ALL_CATEGORIES, null));
+		new Resources<Edirect>(categoryList);
+		return model;
 
 	}
 

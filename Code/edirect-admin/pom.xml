@@ -134,7 +134,7 @@
 				<configuration>
 					<wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory</wroManagerFactory>
 					<cssDestinationFolder>${project.build.directory}/generated-resources/static/css</cssDestinationFolder>
-					<jsDestinationFolder>${project.build.directory}/generated-resources/static/js</jsDestinationFolder>
+					<jsDestinationFolder>${project.build.directory}/generated-resources/static/scripts</jsDestinationFolder>
 					<wroFile>${project.build.directory}/wro/wro.xml</wroFile>
 					<extraConfigFile>${project.build.directory}/wro/wro.properties</extraConfigFile>
 					<contextFolder>${project.build.directory}/wro</contextFolder>
@@ -172,15 +172,15 @@
 					<additionalContexts>
 						<context>
 							<contextRoot>/lib</contextRoot>
-							<directory>${project.build.directory}/classes/static/js</directory>
+							<directory>${project.build.directory}/classes/static/scripts</directory>
 						</context>
 					</additionalContexts>
 					<preloadSources>
 						<source>/lib/angular-bootstrap.js</source>
 						<source>/webjars/angularjs/1.4.9/angular-mocks.js</source>
 					</preloadSources>
-					<jsSrcDir>${project.basedir}/src/main/resources/static/js</jsSrcDir>
-					<jsTestSrcDir>${project.basedir}/src/test/resources/static/js</jsTestSrcDir>
+					<jsSrcDir>${project.basedir}/src/main/resources/static/scripts</jsSrcDir>
+					<jsTestSrcDir>${project.basedir}/src/test/resources/static/scripts</jsTestSrcDir>
 					<phantomjs>
 						<version>2.1.1</version>
 					</phantomjs>
