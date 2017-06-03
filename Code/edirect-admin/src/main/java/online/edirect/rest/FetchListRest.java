@@ -15,17 +15,17 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import online.edirect.connector.dao.ObjectDao;
 import online.edirect.connector.domain.Product;
+import online.edirect.rest.service.FetchListService;
 import online.edirect.utils.QueryId;
 
 @RestController
 @RequestMapping("/list")
-public class FetchListRest {
+public class FetchListRest implements FetchListService{
 	public static final Logger logger = Logger.getLogger(FetchListRest.class);
 
 	@Autowired
@@ -37,7 +37,7 @@ public class FetchListRest {
 	 * @return
 	 * @throws Exception
 	 */
-	@PreAuthorize("hasAuthority('ADMIN')")
+//	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/category", method = RequestMethod.GET)
 	public  Map<String, Object> createCategory() throws Exception {
 		List<Edirect> categoryList = dao.getList(QueryId.RETRIEVE_ALL_CATEGORIES, null).stream()
@@ -52,7 +52,7 @@ public class FetchListRest {
 
 	// -------------------Create a
 	// category-------------------------------------------
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/product", method = RequestMethod.POST)
 	public ResponseEntity<?> createProduct(@RequestBody Product product, UriComponentsBuilder ucBuilder)
 			throws Exception {

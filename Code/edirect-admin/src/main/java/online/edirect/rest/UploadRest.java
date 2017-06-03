@@ -16,7 +16,7 @@ import online.edirect.connector.mapper.HotelMapper;
 @RequestMapping("/upload")
 public class UploadRest {
 
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/inventory", method = RequestMethod.GET)
 	public Map<String, Object> home() {
 		Map<String, Object> model = new HashMap<String, Object>();

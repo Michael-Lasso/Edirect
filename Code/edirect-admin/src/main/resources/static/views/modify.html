@@ -1,302 +1,747 @@
-<div ng-show="authenticated">
+<div data-ng-show="authenticated">
 	<div id="wrapper">
 		<!-- /.row -->
 		<div class="row">
-			<div class="col-lg-12">
+			<div class="col-sm-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">Basic Form Elements</div>
 					<div class="panel-body">
 						<!-- new forms -->
 						<div class="container">
-							<div class="row">
-
-								<div class="col-md-4">
-									<form>
-										<div id="contact-form" class="form-container"
-											data-form-container>
-											<div class="row">
-												<div class="form-title">
-													<span>Category</span>
-												</div>
-											</div>
-											<div class="input-container">
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Input the Category Name."> </span> <input
-														type="text" data-min-length="1" placeholder="Category"
-														name="name" ng-model="name" required>
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input message-box"> <span
-														class="input-status" data-toggle="tooltip"
-														data-placement="top"
-														title="Please input category description."> </span> <textarea
-															type="textarea" data-min-length="10"
-															placeholder="Description" name="description"
-															ng-model="description" required></textarea>
-													</span>
-												</div>
-												<div class="row submit-row">
-													<button type="button" class="btn btn-block submit-form"
-														ng-click="createCategory()">Submit</button>
-												</div>
+							<!-- start of first row -->
+							<div class="col-sm-4 col-sm-offset-1">
+								<form>
+									<div id="contact-form" class="form-container"
+										data-form-container>
+										<div class="row">
+											<div class="form-title">
+												<span>Category</span>
 											</div>
 										</div>
-									</form>
-								</div>
-								<div class="col-md-4">
-									<form>
-										<div id="contact-form" class="form-container"
-											data-form-container>
+										<div class="input-container">
 											<div class="row">
-												<div class="form-title">
-													<span>Product</span>
-												</div>
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input the Category Name."> </span> <input
+													type="text" data-min-length="1" placeholder="Category"
+													name="category_name" data-ng-model="category_name" required>
+												</span>
 											</div>
-											<div class="input-container">
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Input Your First and Last Name."> </span> <input
-														type="text" data-min-length="8" placeholder="Full Name">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Please Input Your Email."> </span> <input
-														type="email" placeholder="Email">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Please Input Your Phone Number."> </span> <input
-														type="tel" placeholder="Phone Number">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input message-box"> <span
-														class="input-status" data-toggle="tooltip"
-														data-placement="top" title="Please Include a Message.">
-													</span> <textarea type="textarea" data-min-length="10"
-															placeholder="Message"></textarea>
-												</div>
-												<div class="row submit-row">
-													<!-- retrieveCategories() -->
-													<button type="button" class="btn btn-block submit-form"
-														ng-click="retrieveCategories()">Submit</button>
-												</div>
+											<div class="row">
+												<span class="req-input message-box"> <span
+													class="input-status" data-toggle="tooltip"
+													data-placement="top"
+													title="Please input category description."> </span> <textarea
+														type="textarea" data-min-length="10"
+														placeholder="Description" name="description"
+														data-ng-model="description" required></textarea>
+												</span>
+											</div>
+											<div class="row submit-row">
+												<button type="button" class="btn btn-block submit-form"
+													data-ng-click="createCategory()">Submit</button>
 											</div>
 										</div>
-									</form>
-								</div>
-
-								<div class="col-md-4">
-									<form>
-										<div id="contact-form" class="form-container"
-											data-form-container>
-											<div class="row">
-												<div class="form-title">
-													<span>Admin</span>
-												</div>
-											</div>
-											<div class="input-container">
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Input Your First and Last Name."> </span> <input
-														type="text" data-min-length="8" placeholder="Full Name">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Please Input Your Email."> </span> <input
-														type="email" placeholder="Email">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Please Input Your Phone Number."> </span> <input
-														type="tel" placeholder="Phone Number">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input message-box"> <span
-														class="input-status" data-toggle="tooltip"
-														data-placement="top" title="Please Include a Message.">
-													</span> <textarea type="textarea" data-min-length="10"
-															placeholder="Message"></textarea>
-												</div>
-												<div class="row submit-row">
-													<button type="button" class="btn btn-block submit-form">Submit</button>
-												</div>
+									</div>
+								</form>
+								<form>
+									<div id="contact-form" class="form-container"
+										data-form-container>
+										<div class="row">
+											<div class="form-title">
+												<span>Warehouse</span>
 											</div>
 										</div>
-									</form>
-								</div>
-
+										<div class="input-container">
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Warehouse Name"> </span> <input type="text"
+													data-min-length="1" placeholder="Warehouse Name"
+													name="warehouse_name" data-ng-model="warehouse_name"
+													required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Warehouse Street"> </span> <input type="text"
+													placeholder="Street" name="warehouse_street"
+													data-ng-model="warehouse_street" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Warehouse City"> </span> <input type="text"
+													placeholder="City" name="warehouse_city"
+													data-ng-model="warehouse_city" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Warehouse State"> </span> <input type="text"
+													placeholder="State" name="warehouse_state"
+													data-ng-model="warehouse_state" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title=" Warehouse Country"> </span> <input type="text"
+													placeholder="Country" name="warehouse_country"
+													data-ng-model="warehouse_country" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top" title="ZipCode">
+												</span> <input type="text" placeholder="Zip Code"
+													name="warehouse_zipcode" data-ng-model="warehouse_zipcode"
+													required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Phone number"> </span> <input type="text"
+													placeholder="Phone Number" name="warehouse_phone"
+													data-ng-model="warehouse_phone" required>
+												</span>
+											</div>
+											<div class="row submit-row">
+												<button type="button" class="btn btn-block submit-form"
+													data-ng-click="createWarehouse()">Submit</button>
+											</div>
+										</div>
+									</div>
+								</form>
+								<form>
+									<div id="contact-form" class="form-container"
+										data-form-container>
+										<div class="row">
+											<div class="form-title">
+												<span>Administrator</span>
+											</div>
+										</div>
+										<div class="input-container">
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Your First Name."> </span> <input type="text"
+													data-min-length="1" placeholder="First Name"
+													name="first_name" data-ng-model="first_name" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Your Last Name."> </span> <input type="text"
+													data-min-length="1" placeholder="Last Name"
+													name="last_name" data-ng-model="last_name" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Email"> </span> <input type="text"
+													data-min-length="1" placeholder="Email" name="email"
+													data-ng-model="email" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Password"> </span> <input type="password"
+													data-min-length="1" placeholder="Pasword" name="password"
+													data-ng-model="password" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Permissions"> </span> <input type="text"
+													data-min-length="1" placeholder="Permissions"
+													name="permissions" data-ng-model="permissions" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Admin Street"> </span> <input type="text"
+													data-min-length="1" placeholder="Street"
+													name="admin_street" data-ng-model="admin_street" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Admin City"> </span> <input type="text"
+													data-min-length="1" placeholder="City" name="admin_city"
+													data-ng-model="admin_city" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Admin State"> </span> <input type="text"
+													data-min-length="1" placeholder="State" name="admin_state"
+													data-ng-model="admin_state" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Admin Country"> </span> <input type="text"
+													data-min-length="1" placeholder="Admin Country"
+													name="admin_country" data-ng-model="admin_country" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Admin ZipCode"> </span> <input type="text"
+													data-min-length="1" placeholder="Zip Code"
+													name="admin_zipcode" data-ng-model="admin_zipcode" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Admin Phone Number"> </span> <input type="text"
+													data-min-length="1" placeholder="Phone Number"
+													name="admin_phone" data-ng-model="admin_phone" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Product's category"> </span> Category <select
+													data-min-length="1" data-ng-model="selectedWarehouse"
+													data-ng-options="y.warehouse_name for (x, y) in warehouses">
+												</select>
+												</span>
+											</div>
+											<div class="row submit-row">
+												<button type="button" class="btn btn-block submit-form"
+													data-ng-click="createAdministrator()">Submit</button>
+											</div>
+										</div>
+									</div>
+								</form>
+								<form>
+									<div id="contact-form" class="form-container"
+										data-form-container>
+										<div class="row">
+											<div class="form-title">
+												<span>Affiliated Company</span>
+											</div>
+										</div>
+										<!-- Start of Product fields -->
+										<div class="input-container">
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Company Name"> </span> <input type="text"
+													data-min-length="1" placeholder="Company Name"
+													name="company_name" data-ng-model="company_name" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Discount ID"> </span> <input type="text"
+													data-min-length="1" placeholder="Discount Id Number"
+													name="discount_id_number"
+													data-ng-model="discount_id_number" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Company Email"> </span> <input type="text"
+													data-min-length="1" placeholder="Company Email"
+													name="company_email" data-ng-model="company_email" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Please Input Company street."> </span> <input
+													type="text" data-min-length="1"
+													placeholder="Company Street" name="company_street"
+													data-ng-model="company_street" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Company City"> </span> <input type="text"
+													data-min-length="1" placeholder="Company City"
+													name="company_city" data-ng-model="company_city" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Company State"> </span> <input type="text"
+													data-min-length="1" placeholder="Company State"
+													name="company_state" data-ng-model="company_state" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Company Country"> </span> <input type="text"
+													data-min-length="1" placeholder="Company Country"
+													name="company_country" data-ng-model="company_country"
+													required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top" title="ZipCode">
+												</span> <input type="text" placeholder="Zip Code"
+													data-min-length="1" name="company_zipcode"
+													data-ng-model="company_zipcode" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Company Phone number"> </span> <input type="text"
+													data-min-length="1" placeholder="Company Phone Number"
+													name="company_phone" data-ng-model="company_phone" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Deal Category"> </span> Category <select
+													data-ng-model="selectedCategory"
+													data-ng-options="y.category_name for (x, y) in categories">
+												</select>
+												</span>
+											</div>
+											<div class="row submit-row">
+												<button type="button" class="btn btn-block submit-form"
+													data-ng-click="createAffiliatedCompany()">Submit</button>
+											</div>
+										</div>
+									</div>
+								</form>
+								<form>
+									<div id="contact-form" class="form-container"
+										data-form-container>
+										<div class="row">
+											<div class="form-title">
+												<span>Email Alert</span>
+											</div>
+										</div>
+										<div class="input-container">
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Alert Name"> </span> <input type="text"
+													data-min-length="1" placeholder="Name" name="alert_name"
+													data-ng-model="alert_name" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Type ID"> </span> <input type="text"
+													data-min-length="1" placeholder="Type" name="type_id"
+													data-ng-model="type_id" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Property ID"> </span> <input type="text"
+													data-min-length="1" placeholder="Property ID"
+													name="property_id" data-ng-model="property_id" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Created Date"> </span> <input type="text"
+													data-min-length="1" placeholder="yyyy-mm-dd"
+													name="alert_date" data-ng-model="alert_date" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input message-box"> <span
+													class="input-status" data-toggle="tooltip"
+													data-placement="top"
+													title="Please input alert description."> </span> <textarea
+														type="textarea" data-min-length="10"
+														placeholder="Description" name="alert_description"
+														data-ng-model="alert_description" required></textarea>
+												</span>
+											</div>
+											<div class="row submit-row">
+												<button type="button" class="btn btn-block submit-form"
+													data-ng-click="createAlert()">Submit</button>
+											</div>
+										</div>
+									</div>
+								</form>
 							</div>
-							<!-- Second Row -->
-							<div class="row">
-								<p>this is {{stat}}3</p>
-								<ul>
-									<li ng-repeat="category in categories">{{ category.category_name }} test</li>
-								</ul>
-
-								<div class="col-md-4">
-									<form>
-										<div id="contact-form" class="form-container"
-											data-form-container>
-											<div class="row">
-												<div class="form-title">
-													<span>Category</span>
-												</div>
-											</div>
-											<div class="input-container">
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Input Your First and Last Name."> </span> <input
-														type="text" data-min-length="8" placeholder="Full Name">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Please Input Your Email."> </span> <input
-														type="email" placeholder="Email">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Please Input Your Phone Number."> </span> <input
-														type="tel" placeholder="Phone Number">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input message-box"> <span
-														class="input-status" data-toggle="tooltip"
-														data-placement="top" title="Please Include a Message.">
-													</span> <textarea type="textarea" data-min-length="10"
-															placeholder="Message"></textarea>
-												</div>
-												<div class="row submit-row">
-													<button type="button" class="btn btn-block submit-form">Submit</button>
-												</div>
+							<!-- end of first row -->
+							<!-- start of second row -->
+							<div class="col-sm-4 col-sm-offset-1">
+								<form>
+									<div id="contact-form" class="form-container"
+										data-form-container>
+										<div class="row">
+											<div class="form-title">
+												<span>Product</span>
 											</div>
 										</div>
-									</form>
-								</div>
-								<div class="col-md-4">
-									<form>
-										<div id="contact-form" class="form-container"
-											data-form-container>
+										<!-- Start of Product fields -->
+										<div class="input-container">
 											<div class="row">
-												<div class="form-title">
-													<span>Product</span>
-												</div>
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input the Product Name."> </span> <input type="text"
+													data-min-length="1" placeholder="Product"
+													name="product_name" data-ng-model="product_name" required>
+												</span>
 											</div>
-											<div class="input-container">
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Input Your First and Last Name."> </span> <input
-														type="text" data-min-length="8" placeholder="Full Name">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Please Input Your Email."> </span> <input
-														type="email" placeholder="Email">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Please Input Your Phone Number."> </span> <input
-														type="tel" placeholder="Phone Number">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input message-box"> <span
-														class="input-status" data-toggle="tooltip"
-														data-placement="top" title="Please Include a Message.">
-													</span> <textarea type="textarea" data-min-length="10"
-															placeholder="Message"></textarea>
-												</div>
-												<div class="row submit-row">
-													<button type="button" class="btn btn-block submit-form">Submit</button>
-												</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Company Name"> </span> <input type="text"
+													data-min-length="1" placeholder="Company Name"
+													name="company_name" data-ng-model="company_name" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Buy Price"> </span> <input type="text"
+													data-min-length="1" placeholder="Buy Price"
+													name="buy_price" data-ng-model="buy_price" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Sell Price"> </span> <input type="text"
+													data-min-length="1" placeholder="Sell Price"
+													name="sell_price" data-ng-model="sell_price" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Packaging"> </span> <input type="text"
+													data-min-length="1" placeholder="Packaging"
+													name="packaging" data-ng-model="packaging" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Video Ling"> </span> <input type="text"
+													data-min-length="1" placeholder="Video Link"
+													name="video_link" data-ng-model="video_link" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Treshold Max"> </span> <input type="text"
+													data-min-length="1" placeholder="Threshold Max"
+													name="treshold_max" data-ng-model="treshold_max" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Treshold Min"> </span> <input type="text"
+													data-min-length="1" placeholder="Treshold Min"
+													name="treshold_min" data-ng-model="treshold_min" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top" title="Weight">
+												</span> <input type="text" data-min-length="1" placeholder="Weight"
+													name="weight" data-ng-model="weight" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Dimension"> </span> <input type="text"
+													data-min-length="1" placeholder="Dimension"
+													name="dimension" data-ng-model="dimension" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Logistic Price"> </span> <input type="text"
+													data-min-length="1" placeholder="Logistic Price"
+													name="logistic_price" data-ng-model="logistic_price"
+													required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Featured Date"> </span> <input type="text"
+													data-min-length="1" placeholder="yyyy-mm-dd"
+													name="featured_product_date"
+													data-ng-model="featured_product_date" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Updated Date"> </span> <input type="text"
+													data-min-length="1" placeholder="yyyy-mm-dd"
+													name="update_date" data-ng-model="update_date" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top" title="Tarif">
+												</span> <input type="text" data-min-length="1" placeholder="Tarif"
+													name="tarif" data-ng-model="tarif" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Percentage Deal"> </span> <input type="text"
+													data-min-length="1" placeholder="Percentage Deal"
+													name="percentage_deal" data-ng-model="percentage_deal"
+													required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Season Reup Alert Days"> </span> <input type="text"
+													data-min-length="1" placeholder="Season Alert Days"
+													name="season_reup_alert_days"
+													data-ng-model="season_reup_alert_days" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Season Alert Date"> </span> <input type="text"
+													data-min-length="1" placeholder="yyyy-mm-dd"
+													name="season_reup_alert_date"
+													data-ng-model="season_reup_alert_date" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Product's category"> </span> Category <select
+													data-ng-model="selectedCategory"
+													data-ng-options="y.category_name for (x, y) in categories">
+												</select>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Featured product."> </span> <select
+													data-ng-model="featured_product"
+													placeholder="featured_product"
+													data-ng-options="o.n for o in [{ n: true}, { n: false }]">
+												</select>
+												</span>
+											</div>
+											<div class="row submit-row">
+												<!-- retrieveCategories() -->
+												<button type="button" class="btn btn-block submit-form"
+													data-ng-click="createProduct()">Submit</button>
 											</div>
 										</div>
-									</form>
-								</div>
-
-								<div class="col-md-4">
-									<form>
-										<div id="contact-form" class="form-container"
-											data-form-container>
-											<div class="row">
-												<div class="form-title">
-													<span>Admin</span>
-												</div>
-											</div>
-											<div class="input-container">
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Input Your First and Last Name."> </span> <input
-														type="text" data-min-length="8" placeholder="Full Name">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Please Input Your Email."> </span> <input
-														type="email" placeholder="Email">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input"> <span class="input-status"
-														data-toggle="tooltip" data-placement="top"
-														title="Please Input Your Phone Number."> </span> <input
-														type="tel" placeholder="Phone Number">
-													</span>
-												</div>
-												<div class="row">
-													<span class="req-input message-box"> <span
-														class="input-status" data-toggle="tooltip"
-														data-placement="top" title="Please Include a Message.">
-													</span> <textarea type="textarea" data-min-length="10"
-															placeholder="Message"></textarea>
-												</div>
-												<div class="row submit-row">
-													<button type="button" class="btn btn-block submit-form">Submit</button>
-												</div>
+										<!-- End of Product fields -->
+									</div>
+								</form>
+								<form>
+									<div id="contact-form" class="form-container"
+										data-form-container>
+										<div class="row">
+											<div class="form-title">
+												<span>Image</span>
 											</div>
 										</div>
-									</form>
-								</div>
-
+										<div class="input-container">
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Imange Name"> </span> <input type="text"
+													data-min-length="1" placeholder="Name" name="image_name"
+													data-ng-model="image_name" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Product ID"> </span> <input type="text"
+													data-min-length="1" placeholder="Product ID"
+													name="image_product_id" data-ng-model="image_product_id"
+													required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Image URL"> </span> <input type="text"
+													data-min-length="1" placeholder="URL" name="image_url"
+													data-ng-model="image_url" required>
+												</span>
+											</div>
+											<div class="row submit-row">
+												<button type="button" class="btn btn-block submit-form"
+													data-ng-click="createImage()">Submit</button>
+											</div>
+										</div>
+									</div>
+								</form>
+								<form>
+									<div id="contact-form" class="form-container"
+										data-form-container>
+										<div class="row">
+											<div class="form-title">
+												<span>Deal</span>
+											</div>
+										</div>
+										<div class="input-container">
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Deal Name"> </span> <input type="text"
+													data-min-length="1" placeholder="Deal Name"
+													name="deal_name" data-ng-model="deal_name" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Product ID"> </span> <input type="text"
+													data-min-length="1" placeholder="Product id"
+													name="deal_product_id" data-ng-model="deal_product_id"
+													required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Start Date"> </span> <input type="text"
+													data-min-length="1" placeholder="yyyy-mm-dd"
+													name="deal_start_date" data-ng-model="deal_start_date"
+													required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input End Date"> </span> <input type="text"
+													data-min-length="1" placeholder="yyyy-mm-dd"
+													name="deal_end_date" data-ng-model="deal_end_date" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Deal Category"> </span> Category <select
+													data-ng-model="selectedCategory"
+													data-ng-options="y.category_name for (x, y) in categories">
+												</select>
+												</span>
+											</div>
+											<div class="row submit-row">
+												<button type="button" class="btn btn-block submit-form"
+													data-ng-click="createDeal()">Submit</button>
+											</div>
+										</div>
+									</div>
+								</form>
+								<form>
+									<div id="contact-form" class="form-container"
+										data-form-container>
+										<div class="row">
+											<div class="form-title">
+												<span>Discount Code</span>
+											</div>
+										</div>
+										<div class="input-container">
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Discount Name"> </span> <input type="text"
+													data-min-length="1" placeholder="Discount Name"
+													name="discount_name" data-ng-model="discount_name" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Discount Code"> </span> <input type="text"
+													data-min-length="1" placeholder="Discount Code"
+													name="discount_code" data-ng-model="discount_code" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input Start Date"> </span> <input type="text"
+													data-min-length="1" placeholder="yyyy-mm-dd"
+													name="discount_start_date"
+													data-ng-model="discount_start_date" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input End Date"> </span> <input type="text"
+													data-min-length="1" placeholder="yyyy-mm-dd"
+													name="discount_end_date" data-ng-model="discount_end_date"
+													required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Deal Category"> </span> Category <select
+													data-ng-model="selectedCategory"
+													data-ng-options="y.category_name for (x, y) in categories">
+												</select>
+												</span>
+											</div>
+											<div class="row submit-row">
+												<button type="button" class="btn btn-block submit-form"
+													data-ng-click="createDiscountCode()">Submit</button>
+											</div>
+										</div>
+									</div>
+								</form>
 							</div>
+							<!-- end of second row -->
 						</div>
-						<!-- /.row (nested) -->
 					</div>
-					<!-- /.panel-body -->
+					<!-- /.row (nested) -->
 				</div>
-				<!-- /.panel -->
+				<!-- /.panel-body -->
 			</div>
-			<!-- /.col-lg-12 -->
+			<!-- /.panel -->
 		</div>
-		<!-- /.row -->
+		<!-- /.col-lg-12 -->
 	</div>
-	<!-- /#page-wrapper -->
-
+	<!-- /.row -->
 </div>
+<!-- /#page-wrapper -->
+

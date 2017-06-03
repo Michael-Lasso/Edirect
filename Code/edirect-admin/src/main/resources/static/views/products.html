@@ -1,4 +1,4 @@
-<div ng-show="authenticated">
+<div data-ng-show="authenticated">
 	<div id="wrapper">
 		<!-- /.row -->
 		<div class="row">
@@ -81,19 +81,19 @@
 			<div class="col-lg-12">
 				<div class="jumbotron">
 					<p>
-						Name: <input type="text" name="name" ng-model="name" required />
+						Name: <input type="text" name="name" data-ng-model="name" required />
 					</p>
 					<p>
-						Address: <input type="text" name="address" ng-model="address"
+						Address: <input type="text" name="address" data-ng-model="address"
 							required />
 					</p>
 					<p>
-						Zip: <input type="number" name="zip" ng-model="zip" required />
+						Zip: <input type="number" name="zip" data-ng-model="zip" required />
 					</p>
 					<p>
-						City: <input type="number" name="city" ng-model="city" required />
+						City: <input type="number" name="city" data-ng-model="city" required />
 					</p>
-					<button ng-click="SendData()">Submit</button>
+					<button data-ng-click="SendData()">Submit</button>
 					<hr />
 					{{ PostDataResponse }}
 				</div>

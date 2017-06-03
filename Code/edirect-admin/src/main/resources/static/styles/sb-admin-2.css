@@ -169,14 +169,7 @@ body {
 .login-panel {
   margin-top: 25%;
 }
-.flot-chart {
-  display: block;
-  height: 400px;
-}
-.flot-chart-content {
-  width: 100%;
-  height: 100%;
-}
+
 table.dataTable thead .sorting,
 table.dataTable thead .sorting_asc,
 table.dataTable thead .sorting_desc,

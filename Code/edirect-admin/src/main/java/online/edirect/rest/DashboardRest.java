@@ -17,7 +17,7 @@ public class DashboardRest {
 		return user;
 	}
 
-	 @PreAuthorize("hasAuthority('ADMIN')")
+	 @PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping("/resource")
 	public Map<String, Object> home() {
 		Map<String, Object> model = new HashMap<String, Object>();

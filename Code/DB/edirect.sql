@@ -36,6 +36,7 @@ CREATE TABLE product (
     percentage_deal DOUBLE NOT NULL,
     season_reup_alert_days INTEGER,
     season_reup_alert_date DATE,
+    tags VARCHAR(1000),
     PRIMARY KEY (`product_id`),
     CONSTRAINT product_fk_category FOREIGN KEY (category_id)
         REFERENCES category (category_id)
@@ -139,7 +140,7 @@ CREATE TABLE product_order (
 CREATE TABLE warehouse (
     warehouse_id BIGINT NOT NULL AUTO_INCREMENT,
     address_id BIGINT NOT NULL,
-    warehouse_name VARCHAR(40) NOT NULL,
+    warehouse_name VARCHAR(50) NOT NULL,
     PRIMARY KEY (`warehouse_id`),
     CONSTRAINT warehouse_fk_address FOREIGN KEY (address_id)
         REFERENCES address (address_id)
@@ -174,6 +175,7 @@ CREATE TABLE administrator (
 CREATE TABLE email_alert (
     alert_id BIGINT NOT NULL AUTO_INCREMENT,
     type_id VARCHAR(50) NOT NULL,
+    alert_name VARCHAR(50) NOT NULL,
     property_id BIGINT NOT NULL,
     description VARCHAR(256) NOT NULL,
     created_date DATE NOT NULL,
@@ -198,6 +200,7 @@ CREATE TABLE deal (
     deal_id BIGINT NOT NULL AUTO_INCREMENT,
     category_id INTEGER,
     product_id BIGINT,
+	deal_name VARCHAR(50) NOT NULL,
 	start_date	DATE NOT NULL,
 	end_date	DATE NOT NULL,
     PRIMARY KEY (`deal_id`),
@@ -215,6 +218,7 @@ CREATE TABLE discount_code (
     category_id INTEGER NOT NULL,
     start_date DATE NOT NULL,
     end_date DATE NOT NULL,
+    discount_name VARCHAR(30) NOT NULL,
     discount_code VARCHAR(30) NOT NULL,
     salt VARCHAR(15) NOT NULL,
     PRIMARY KEY (`discount_id`),
@@ -228,8 +232,8 @@ CREATE TABLE affiliated_company (
     discount_id BIGINT NOT NULL,
     start_affiliated_date DATE NOT NULL,
     end_affiliated_date DATE,
-    name VARCHAR(30) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+    company_name VARCHAR(30) NOT NULL,
+    company_email VARCHAR(100) NOT NULL,
     PRIMARY KEY (`company_id`),
     CONSTRAINT affcompany_fk_address FOREIGN KEY (address_id)
         REFERENCES address (address_id),
@@ -240,7 +244,8 @@ CREATE TABLE affiliated_company (
 CREATE TABLE image (
     image_id BIGINT NOT NULL AUTO_INCREMENT,
     product_id BIGINT NOT NULL,
-    link VARCHAR(256) NOT NULL,
+    image_name VARCHAR(30) NOT NULL,
+    url VARCHAR(256) NOT NULL,
     PRIMARY KEY (`image_id`),
     FOREIGN KEY (product_id)
         REFERENCES product (product_id)

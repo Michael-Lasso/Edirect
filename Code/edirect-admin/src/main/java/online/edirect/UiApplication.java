@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -34,17 +35,19 @@ public class UiApplication extends SpringBootServletInitializer {
 			// @formatter:off
 			http.httpBasic().and().authorizeRequests().antMatchers("/login.html").permitAll().anyRequest()
 					.authenticated().and().authorizeRequests()
-					.antMatchers("/home.html", "/index.html", "/modify.html", "/products.html", "/orders.html",
-							"/upload.html")
-					.hasAnyAuthority("ADMIN").anyRequest().authenticated().and().csrf()
-					.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+					.antMatchers("/views/home.html", "/index.html", "/views/modify.html", "/views/products.html", "/views/orders.html",
+							"/views/upload.html")
+					.hasRole("ADMIN").anyRequest().authenticated().and().csrf()
+					.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and().exceptionHandling()
+					.accessDeniedPage("/error/403");
 			// @formatter:on
 		}
 
 		@Autowired
+		@Order(Ordered.HIGHEST_PRECEDENCE)
 		public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-			auth.inMemoryAuthentication().withUser("user").password("password").roles("ADMIN").authorities("ADMIN");
-			auth.inMemoryAuthentication().withUser("guest").password("guest").roles("USER");
+			auth.inMemoryAuthentication().withUser("user").password("password").roles("ADMIN").and().withUser("guest")
+					.password("guest").roles("USER");
 		}
 	}
 

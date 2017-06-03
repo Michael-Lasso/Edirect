@@ -17,7 +17,7 @@ public class OrdersRest {
 	@Autowired
 	private HotelMapper hotelMapper;
 
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping("/order")
 	public Map<String, Object> home() {
 		Map<String, Object> model = new HashMap<String, Object>();
