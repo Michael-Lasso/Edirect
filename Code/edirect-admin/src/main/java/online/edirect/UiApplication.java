@@ -35,11 +35,13 @@ public class UiApplication extends SpringBootServletInitializer {
 			// @formatter:off
 			http.httpBasic().and().authorizeRequests().antMatchers("/login.html").permitAll().anyRequest()
 					.authenticated().and().authorizeRequests()
-					.antMatchers("/views/home.html", "/index.html", "/views/modify.html", "/views/products.html", "/views/orders.html",
-							"/views/upload.html")
-					.hasRole("ADMIN").anyRequest().authenticated().and().csrf()
-					.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and().exceptionHandling()
-					.accessDeniedPage("/error/403");
+					.antMatchers("/views/home.html", "/index.html", "/views/modify.html", "/views/products.html",
+							"/views/orders.html", "/views/upload.html", "/directives/banner.html",
+							"/directives/uploadStrategySelector.html", "/upload/part")
+					.hasRole("ADMIN").anyRequest().authenticated().and().csrf().disable();
+			// .and().csrf()
+			// .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and().exceptionHandling()
+			// .accessDeniedPage("/error/403");
 			// @formatter:on
 		}
 

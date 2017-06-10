@@ -17,6 +17,7 @@ package online.edirect.connector.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
@@ -52,6 +53,7 @@ public class ObjectDao {
 		log.info("Rows affected: " + this.sqlSession.insert(QueryId, criteria));
 		log.info("Successful query");
 		log.info("-----------------------------------------------\n");
+		// sqlSession.getConfiguration().setDefaultExecutorType(ExecutorType.BATCH);
 	}
 
 	/**

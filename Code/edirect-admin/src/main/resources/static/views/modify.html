@@ -33,8 +33,8 @@
 													data-placement="top"
 													title="Please input category description."> </span> <textarea
 														type="textarea" data-min-length="10"
-														placeholder="Description" name="description"
-														data-ng-model="description" required></textarea>
+														placeholder="Description" name="category_description"
+														data-ng-model="category_description" required></textarea>
 												</span>
 											</div>
 											<div class="row submit-row">
@@ -56,8 +56,8 @@
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Warehouse Name"> </span> <input type="text"
-													data-min-length="1" placeholder="Warehouse Name"
+													title="Input warehouse name"> </span> <input type="text"
+													data-min-length="1" placeholder="Name"
 													name="warehouse_name" data-ng-model="warehouse_name"
 													required>
 												</span>
@@ -65,7 +65,7 @@
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Warehouse Street"> </span> <input type="text"
+													title="Input warehouse street"> </span> <input type="text"
 													placeholder="Street" name="warehouse_street"
 													data-ng-model="warehouse_street" required>
 												</span>
@@ -73,7 +73,7 @@
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Warehouse City"> </span> <input type="text"
+													title="Input warehouse city"> </span> <input type="text"
 													placeholder="City" name="warehouse_city"
 													data-ng-model="warehouse_city" required>
 												</span>
@@ -81,7 +81,7 @@
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Warehouse State"> </span> <input type="text"
+													title="Input warehouse state"> </span> <input type="text"
 													placeholder="State" name="warehouse_state"
 													data-ng-model="warehouse_state" required>
 												</span>
@@ -89,25 +89,26 @@
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title=" Warehouse Country"> </span> <input type="text"
-													placeholder="Country" name="warehouse_country"
+													title=" Input warehouse country"> </span> <input
+													type="text" placeholder="Country" name="warehouse_country"
 													data-ng-model="warehouse_country" required>
 												</span>
 											</div>
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
-													data-toggle="tooltip" data-placement="top" title="ZipCode">
-												</span> <input type="text" placeholder="Zip Code"
-													name="warehouse_zipcode" data-ng-model="warehouse_zipcode"
-													required>
+													data-toggle="tooltip" data-placement="top"
+													title="Input warehouse zip code"> </span> <input
+													type="text" placeholder="Zip Code" name="warehouse_zipcode"
+													data-ng-model="warehouse_zipcode" required>
 												</span>
 											</div>
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Phone number"> </span> <input type="text"
-													placeholder="Phone Number" name="warehouse_phone"
-													data-ng-model="warehouse_phone" required>
+													title="Input warehouse phone number, only numbers, no sapces/dashes">
+												</span> <input type="text" placeholder="Phone Number"
+													name="warehouse_phone" data-ng-model="warehouse_phone"
+													required>
 												</span>
 											</div>
 											<div class="row submit-row">
@@ -153,17 +154,18 @@
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Input Password"> </span> <input type="password"
-													data-min-length="1" placeholder="Pasword" name="password"
-													data-ng-model="password" required>
+													title="Input Password for admin"> </span> <input
+													type="password" data-min-length="1" placeholder="Pasword"
+													name="password" data-ng-model="password" required>
 												</span>
 											</div>
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Input Permissions"> </span> <input type="text"
-													data-min-length="1" placeholder="Permissions"
-													name="permissions" data-ng-model="permissions" required>
+													title="Input Permissions separated by ','. No spaces in between">
+												</span> <input type="text" data-min-length="1"
+													placeholder="Permissions" name="permissions"
+													data-ng-model="permissions" required>
 												</span>
 											</div>
 											<div class="row">
@@ -217,7 +219,7 @@
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Product's category"> </span> Category <select
+													title="Product's category"> </span> Warehouses <select
 													data-min-length="1" data-ng-model="selectedWarehouse"
 													data-ng-options="y.warehouse_name for (x, y) in warehouses">
 												</select>
@@ -245,7 +247,8 @@
 													data-toggle="tooltip" data-placement="top"
 													title="Input Company Name"> </span> <input type="text"
 													data-min-length="1" placeholder="Company Name"
-													name="company_name" data-ng-model="company_name" required>
+													name="affi_company_name" data-ng-model="affi_company_name"
+													required>
 												</span>
 											</div>
 											<div class="row">
@@ -318,10 +321,17 @@
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Deal Category"> </span> Category <select
-													data-ng-model="selectedCategory"
-													data-ng-options="y.category_name for (x, y) in categories">
-												</select>
+													title="Input affiliated start date"> </span> <input type="text"
+													data-min-length="1" placeholder="yyyy-mm-dd"
+													name="start_affiliated_date" data-ng-model="start_affiliated_date" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
+													title="Input affiliated end date"> </span> <input type="text"
+													data-min-length="1" placeholder="yyyy-mm-dd"
+													name="end_affiliated_date" data-ng-model="end_affiliated_date" required>
 												</span>
 											</div>
 											<div class="row submit-row">
@@ -351,7 +361,7 @@
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Input Type ID"> </span> <input type="text"
+													title="Input type ID for alert"> </span> <input type="text"
 													data-min-length="1" placeholder="Type" name="type_id"
 													data-ng-model="type_id" required>
 												</span>
@@ -416,29 +426,32 @@
 													data-toggle="tooltip" data-placement="top"
 													title="Company Name"> </span> <input type="text"
 													data-min-length="1" placeholder="Company Name"
-													name="company_name" data-ng-model="company_name" required>
+													name="prod_company_name" data-ng-model="prod_company_name"
+													required>
 												</span>
 											</div>
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Buy Price"> </span> <input type="text"
+													title="Input product buy price"> </span> <input type="text"
 													data-min-length="1" placeholder="Buy Price"
-													name="buy_price" data-ng-model="buy_price" required>
+													name="prod_buy_price" data-ng-model="prod_buy_price"
+													required>
 												</span>
 											</div>
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Sell Price"> </span> <input type="text"
-													data-min-length="1" placeholder="Sell Price"
-													name="sell_price" data-ng-model="sell_price" required>
+													title="Input product sell price"> </span> <input
+													type="text" data-min-length="1" placeholder="Sell Price"
+													name="prod_sell_price" data-ng-model="prod_sell_price"
+													required>
 												</span>
 											</div>
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Packaging"> </span> <input type="text"
+													title="Input true or false"> </span> <input type="text"
 													data-min-length="1" placeholder="Packaging"
 													name="packaging" data-ng-model="packaging" required>
 												</span>
@@ -477,9 +490,10 @@
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Dimension"> </span> <input type="text"
-													data-min-length="1" placeholder="Dimension"
-													name="dimension" data-ng-model="dimension" required>
+													title="Input dimension in format widht,length,height in cm">
+												</span> <input type="text" data-min-length="1"
+													placeholder="Dimension" name="dimension"
+													data-ng-model="dimension" required>
 												</span>
 											</div>
 											<div class="row">
@@ -489,23 +503,6 @@
 													data-min-length="1" placeholder="Logistic Price"
 													name="logistic_price" data-ng-model="logistic_price"
 													required>
-												</span>
-											</div>
-											<div class="row">
-												<span class="req-input"> <span class="input-status"
-													data-toggle="tooltip" data-placement="top"
-													title="Featured Date"> </span> <input type="text"
-													data-min-length="1" placeholder="yyyy-mm-dd"
-													name="featured_product_date"
-													data-ng-model="featured_product_date" required>
-												</span>
-											</div>
-											<div class="row">
-												<span class="req-input"> <span class="input-status"
-													data-toggle="tooltip" data-placement="top"
-													title="Updated Date"> </span> <input type="text"
-													data-min-length="1" placeholder="yyyy-mm-dd"
-													name="update_date" data-ng-model="update_date" required>
 												</span>
 											</div>
 											<div class="row">
@@ -545,6 +542,14 @@
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
+													title="Input product tags separated by ','"> </span> <input
+													type="text" data-min-length="1" placeholder="tags"
+													name="tags" data-ng-model="tags" required>
+												</span>
+											</div>
+											<div class="row">
+												<span class="req-input"> <span class="input-status"
+													data-toggle="tooltip" data-placement="top"
 													title="Product's category"> </span> Category <select
 													data-ng-model="selectedCategory"
 													data-ng-options="y.category_name for (x, y) in categories">
@@ -552,13 +557,13 @@
 												</span>
 											</div>
 											<div class="row">
-												<span class="req-input"> <span class="input-status"
-													data-toggle="tooltip" data-placement="top"
-													title="Featured product."> </span> <select
-													data-ng-model="featured_product"
-													placeholder="featured_product"
-													data-ng-options="o.n for o in [{ n: true}, { n: false }]">
-												</select>
+												<span class="req-input message-box"> <span
+													class="input-status" data-toggle="tooltip"
+													data-placement="top"
+													title="Please input product description"> </span> <textarea
+														type="textarea" data-min-length="10"
+														placeholder="Description" name="product_description"
+														data-ng-model="product_description" required></textarea>
 												</span>
 											</div>
 											<div class="row submit-row">
@@ -640,7 +645,7 @@
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Input Start Date"> </span> <input type="text"
+													title="Input deal start date"> </span> <input type="text"
 													data-min-length="1" placeholder="yyyy-mm-dd"
 													name="deal_start_date" data-ng-model="deal_start_date"
 													required>
@@ -649,7 +654,7 @@
 											<div class="row">
 												<span class="req-input"> <span class="input-status"
 													data-toggle="tooltip" data-placement="top"
-													title="Input End Date"> </span> <input type="text"
+													title="Input deal end date"> </span> <input type="text"
 													data-min-length="1" placeholder="yyyy-mm-dd"
 													name="deal_end_date" data-ng-model="deal_end_date" required>
 												</span>

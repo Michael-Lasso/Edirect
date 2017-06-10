@@ -5,7 +5,9 @@ angular.module('edirect',
 		  'edirect.login',
 		  'edirect.products',
 		  'edirect.upload',
-		  'edirect.orders'
+		  'edirect.orders',
+		  'uploadAppDirectives',
+		  'uploadAppControllers'
 		  ]
 ).config(function($routeProvider, $httpProvider) {
 	$routeProvider.when('/', {
@@ -22,6 +24,8 @@ angular.module('edirect',
 		self.greeting = response.data;
 	})
 });
+angular.module('uploadAppControllers', []);
+angular.module('uploadAppDirectives', []);
 
 function htmlbodyHeightUpdate(){
 	var height3 = $( window ).height()

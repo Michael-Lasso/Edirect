@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+
 <title>Edirect</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +16,8 @@
 <script src="scripts/controllers/orders.js"></script>
 <script src="scripts/controllers/products.js"></script>
 <script src="scripts/controllers/upload.js"></script>
-
+ <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+ <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
 
 <!--  -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +27,7 @@
 	rel="stylesheet" type="text/css">
 <link href="vendor/morrisjs/morris.css" rel="stylesheet">
 <link href="styles/admin.css" rel="stylesheet">
+<link href="styles/app.css" rel="stylesheet">
 
 <script src="vendor/morrisjs/morris.js"></script>
 <script src="vendor/jquery/jquery.min.js"></script>
@@ -34,6 +37,11 @@
 <script src="vendor/morrisjs/morris-data.js"></script>
 <script src="scripts/js/sb-admin-2.js"></script>
 <script src="scripts/js/forms.js"></script>
+
+<script src="scripts/js/main-controller.js"></script>
+<script src="scripts/js/banner-directive.js"></script>
+<script src="scripts/js/custom-on-change-directive.js"></script>
+<script src="scripts/js/upload-strategy-selector-directive.js"></script>
 <!-- 
  -->
 
@@ -71,7 +79,8 @@
 		</nav>
 	</div>
 	<div ng-show="authenticated">
-		<nav class="navbar navbar-inverse sidebar" role="navigation" data-spy="affix" data-offset-top="197">
+		<nav class="navbar navbar-inverse sidebar" role="navigation"
+			data-spy="affix" data-offset-top="197">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">

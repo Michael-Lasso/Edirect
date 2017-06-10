@@ -20,13 +20,14 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import online.edirect.connector.dao.ObjectDao;
 import online.edirect.connector.domain.Product;
+import online.edirect.connector.domain.Warehouse;
 import online.edirect.rest.service.FetchListService;
 import online.edirect.utils.QueryId;
 
 @RestController
 @RequestMapping("/list")
-public class FetchListRest implements FetchListService{
-	public static final Logger logger = Logger.getLogger(FetchListRest.class);
+public class FetchListRest implements FetchListService {
+	public static final Logger log = Logger.getLogger(FetchListRest.class);
 
 	@Autowired
 	private ObjectDao dao;
@@ -37,17 +38,21 @@ public class FetchListRest implements FetchListService{
 	 * @return
 	 * @throws Exception
 	 */
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	// @PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/category", method = RequestMethod.GET)
-	public  Map<String, Object> createCategory() throws Exception {
-		List<Edirect> categoryList = dao.getList(QueryId.RETRIEVE_ALL_CATEGORIES, null).stream()
-				.map(Edirect::new).collect(Collectors.toList());
+	public Map<String, Object> createCategory() throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
-		
 		model.put("content", dao.getList(QueryId.RETRIEVE_ALL_CATEGORIES, null));
-		new Resources<Edirect>(categoryList);
 		return model;
+	}
 
+	@RequestMapping(value = "/warehouse", method = RequestMethod.GET)
+	public Map<String, Object> createWarehouse() throws Exception {
+		Map<String, Object> model = new HashMap<String, Object>();
+		List<Warehouse> list = dao.getList(QueryId.RETRIEVE_ALL_WAREHOUSES, null);
+		list.forEach(log::info);
+		model.put("content", list);
+		return model;
 	}
 
 	// -------------------Create a
@@ -56,12 +61,12 @@ public class FetchListRest implements FetchListService{
 	@RequestMapping(value = "/product", method = RequestMethod.POST)
 	public ResponseEntity<?> createProduct(@RequestBody Product product, UriComponentsBuilder ucBuilder)
 			throws Exception {
-		logger.info("Creating Product : {" + product + "}");
+		log.info("Creating Product : {" + product + "}");
 
-		dao.insertQuery(QueryId.SAVE_PRODUCT, product);
+		dao.insertQuery(QueryId.CREATE_PRODUCT, product);
 
 		// hotelMapper.saveCategory(cat);
-		logger.info("Created: " + product.toString());
+		log.info("Created: " + product.toString());
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/api/create/{id}").buildAndExpand(product.getProduct_name()).toUri());
 		return new ResponseEntity<String>(headers, HttpStatus.CREATED);

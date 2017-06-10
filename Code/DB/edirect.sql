@@ -30,7 +30,8 @@ CREATE TABLE product (
     dimension VARCHAR(24),
     logistic_price DOUBLE NOT NULL,
     featured_product_date TIMESTAMP,
-    update_date DATE,
+    created_date DATE,
+    updated_date DATE,
     tarif DOUBLE NOT NULL,
     over_stock_days INTEGER,
     percentage_deal DOUBLE NOT NULL,
@@ -47,9 +48,9 @@ CREATE TABLE address (
     street VARCHAR(150) NOT NULL,
     city VARCHAR(50) NOT NULL,
     state VARCHAR(40) NOT NULL,
-    zip_code INTEGER,
+    zip_code VARCHAR(40),
     country VARCHAR(40) NOT NULL,
-    phone_number BIGINT,
+    phone_number VARCHAR(40),
     PRIMARY KEY (`address_id`)
 )  ENGINE=INNODB AUTO_INCREMENT=1000 DEFAULT CHARSET=LATIN1; 
 
@@ -100,6 +101,8 @@ CREATE TABLE re_stock_item (
     restock_id BIGINT NOT NULL AUTO_INCREMENT,
     product_id BIGINT NOT NULL,
     tracking_number VARCHAR(100) NOT NULL,
+	description VARCHAR(512) NOT NULL,
+	username VARCHAR(30) NOT NULL,
     quantity_ordered INTEGER NOT NULL,
     deficient_quantity INTEGER,
     PRIMARY KEY (`restock_id`),
@@ -139,11 +142,14 @@ CREATE TABLE product_order (
 
 CREATE TABLE warehouse (
     warehouse_id BIGINT NOT NULL AUTO_INCREMENT,
-    address_id BIGINT NOT NULL,
     warehouse_name VARCHAR(50) NOT NULL,
-    PRIMARY KEY (`warehouse_id`),
-    CONSTRAINT warehouse_fk_address FOREIGN KEY (address_id)
-        REFERENCES address (address_id)
+    street VARCHAR(150) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    state VARCHAR(40) NOT NULL,
+    zip_code VARCHAR(40),
+    country VARCHAR(40) NOT NULL,
+    phone_number VARCHAR(40),
+    PRIMARY KEY (`warehouse_id`)
 )  ENGINE=INNODB AUTO_INCREMENT=1000 DEFAULT CHARSET=LATIN1;
 
 CREATE TABLE warehouse_inventory (
@@ -158,18 +164,21 @@ CREATE TABLE warehouse_inventory (
 CREATE TABLE administrator (
     admin_id BIGINT NOT NULL AUTO_INCREMENT,
     warehouse_id BIGINT NOT NULL,
-    address_id BIGINT NOT NULL,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
+    street VARCHAR(150) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    state VARCHAR(40) NOT NULL,
+    zip_code VARCHAR(40),
+    country VARCHAR(40) NOT NULL,
+    phone_number VARCHAR(40),
     email VARCHAR(100) NOT NULL ,
     password VARCHAR(30) NOT NULL,
     permissions VARCHAR(256) NOT NULL,
     salt VARCHAR(15) NOT NULL,
     PRIMARY KEY (`admin_id`),
     CONSTRAINT admin_fk_warehouse FOREIGN KEY (warehouse_id)
-        REFERENCES warehouse (warehouse_id),
-    CONSTRAINT admin_fk_address FOREIGN KEY (address_id)
-        REFERENCES address (address_id)
+        REFERENCES warehouse (warehouse_id)
 )  ENGINE=INNODB AUTO_INCREMENT=1000 DEFAULT CHARSET=LATIN1;
 
 CREATE TABLE email_alert (
@@ -228,15 +237,18 @@ CREATE TABLE discount_code (
 
 CREATE TABLE affiliated_company (
     company_id BIGINT NOT NULL AUTO_INCREMENT,
-    address_id BIGINT NOT NULL,
-    discount_id BIGINT NOT NULL,
+    discount_id BIGINT,
     start_affiliated_date DATE NOT NULL,
     end_affiliated_date DATE,
     company_name VARCHAR(30) NOT NULL,
+    street VARCHAR(150) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    state VARCHAR(40) NOT NULL,
+    zip_code VARCHAR(40),
+    country VARCHAR(40) NOT NULL,
+    phone_number VARCHAR(40),
     company_email VARCHAR(100) NOT NULL,
     PRIMARY KEY (`company_id`),
-    CONSTRAINT affcompany_fk_address FOREIGN KEY (address_id)
-        REFERENCES address (address_id),
     CONSTRAINT affcompany_fk_discount FOREIGN KEY (discount_id)
         REFERENCES discount_code (discount_id)
 )  ENGINE=INNODB AUTO_INCREMENT=1000 DEFAULT CHARSET=LATIN1;

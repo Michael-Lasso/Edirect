@@ -6,184 +6,205 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Basic Form Elements</div>
 					<div class="panel-body">
-						<div class="row">
-							<div class="col-lg-6">
-								<form role="form">
-									<div class="form-group">
-										<label>Text Input</label> <input class="form-control">
-										<p class="help-block">Example block-level help text here.</p>
-									</div>
-									<div class="form-group">
-										<label>Text Input with Placeholder</label> <input
-											class="form-control" placeholder="Enter text">
-									</div>
-									<div class="form-group">
-										<label>Static Control</label>
-										<p class="form-control-static">email@example.com</p>
-									</div>
-									<div class="form-group">
-										<label>File input</label> <input type="file">
-									</div>
-									<div class="form-group">
-										<label>Text area</label>
-										<textarea class="form-control" rows="3"></textarea>
-									</div>
-									<div class="form-group">
-										<label>Checkboxes</label>
-										<div class="checkbox">
-											<label> <input type="checkbox" value="">Checkbox
-												1
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" value="">Checkbox
-												2
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" value="">Checkbox
-												3
-											</label>
-										</div>
-									</div>
-									<div class="form-group">
-										<label>Inline Checkboxes</label> <label
-											class="checkbox-inline"> <input type="checkbox">1
-										</label> <label class="checkbox-inline"> <input
-											type="checkbox">2
-										</label> <label class="checkbox-inline"> <input
-											type="checkbox">3
-										</label>
-									</div>
-									<div class="form-group">
-										<label>Radio Buttons</label>
-										<div class="radio">
-											<label> <input type="radio" name="optionsRadios"
-												id="optionsRadios1" value="option1" checked>Radio 1
-											</label>
-										</div>
-										<div class="radio">
-											<label> <input type="radio" name="optionsRadios"
-												id="optionsRadios2" value="option2">Radio 2
-											</label>
-										</div>
-										<div class="radio">
-											<label> <input type="radio" name="optionsRadios"
-												id="optionsRadios3" value="option3">Radio 3
-											</label>
+						<div class="container">
+							<div class="row">
+
+								<!-- panel preview -->
+								<form class="form-horizontal" role="form"
+									data-ng-submit="addRow()">
+									<div class="col-sm-5 col-sm-offset-1">
+										<h4>Add Order:</h4>
+										<div class="panel panel-default">
+											<div class="panel-body form-horizontal payment-form">
+												<div class="form-group">
+													<label for="concept" class="col-sm-3 control-label">Product
+														ID</label>
+													<div class="col-sm-9">
+														<input type="text" class="form-control" id="product_id"
+															name="product_id" data-ng-model="product_id">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="description" class="col-sm-3 control-label">Description</label>
+													<div class="col-sm-9">
+														<input type="text" class="form-control" id="description"
+															name="description" data-ng-model="description">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="amount" class="col-sm-3 control-label">Quantity</label>
+													<div class="col-sm-9">
+														<input type="number" class="form-control" id="quantity"
+															name="quantity" data-ng-model="quantity">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="status" class="col-sm-3 control-label">Username</label>
+													<div class="col-sm-9">
+														<input type="text" class="form-control" id="user"
+															name="user" data-ng-model="user">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="date" class="col-sm-3 control-label">Date</label>
+													<div class="col-sm-9">
+														<input type="date" class="form-control" id="date"
+															name="date" data-ng-model="date">
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-sm-12 text-right">
+														<input type="submit" value="Submit"
+															class="btn btn-primary" /> <span
+															class="glyphicon glyphicon-plus"></span> Add
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
-									<div class="form-group">
-										<label>Inline Radio Buttons</label> <label
-											class="radio-inline"> <input type="radio"
-											name="optionsRadiosInline" id="optionsRadiosInline1"
-											value="option1" checked>1
-										</label> <label class="radio-inline"> <input type="radio"
-											name="optionsRadiosInline" id="optionsRadiosInline2"
-											value="option2">2
-										</label> <label class="radio-inline"> <input type="radio"
-											name="optionsRadiosInline" id="optionsRadiosInline3"
-											value="option3">3
-										</label>
-									</div>
-									<div class="form-group">
-										<label>Selects</label> <select class="form-control">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<label>Multiple Selects</label> <select multiple
-											class="form-control">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-										</select>
-									</div>
-									<button type="submit" class="btn btn-default">Submit
-										Button</button>
-									<button type="reset" class="btn btn-default">Reset
-										Button</button>
 								</form>
+								<!-- / panel preview -->
+								<div class="col-sm-5">
+									<h4>Preview:</h4>
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="table-responsive">
+												<table class="table preview-table">
+													<thead>
+														<tr>
+															<th><a href=""
+																data-ng-click="orderByField='product_id'; reverseSort = !reverseSort">Product
+																	ID</a></th>
+															<th><a href=""
+																data-ng-click="orderByField='description'; reverseSort = !reverseSort">Description</a></th>
+															<th><a href=""
+																data-ng-click="orderByField='quantity'; reverseSort = !reverseSort">Quantity</a></th>
+															<th><a href=""
+																data-ng-click="orderByField='user'; reverseSort = !reverseSort">User</a></th>
+															<th><a href=""
+																data-ng-click="orderByField='date'; reverseSort = !reverseSort">Date</a></th>
+														</tr>
+														<tr
+															data-ng-repeat="orders in re_stock_item | filter: searchKeyword | orderBy:orderByField:reverseSort">
+															<td>{{orders.product_id}}</td>
+															<td>{{orders.description}}</td>
+															<td>{{orders.quantity}}</td>
+															<td>{{orders.user}}</td>
+															<td>{{orders.date}}</td>
+														</tr>
+													</thead>
+													<tbody></tbody>
+													<!-- preview content goes here-->
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="row text-right">
+										<div class="col-xs-12">
+											<h4>
+												Total: <strong><span class="preview-total"></span></strong>
+											</h4>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12">
+											<hr style="border: 1px dashed #dddddd;">
+											<button type="button" class="btn btn-primary btn-block">Submit
+												all and finish</button>
+										</div>
+									</div>
+								</div>
 							</div>
-							<!-- /.col-lg-6 (nested) -->
-							<div class="col-lg-6">
-								<h1>Disabled Form States</h1>
-								<form role="form">
-									<fieldset disabled>
+							<div class="row" data-ng-controller="MainCtrl as vm">
+								<upload-banner></upload-banner>
+
+								<div class="container">
+
+									<h1 class="page-header">Upload a file, see information
+										about the operation!</h1>
+
+									<form class="app-form" novalidate>
+
 										<div class="form-group">
-											<label for="disabledSelect">Disabled input</label> <input
-												class="form-control" id="disabledInput" type="text"
-												placeholder="Disabled input" disabled>
+											<label>Upload Strategy</label>
+											<upload-strategy-selector upload-strategy="vm.uploadStrategy"></upload-strategy-selector>
 										</div>
+
 										<div class="form-group">
-											<label for="disabledSelect">Disabled select menu</label> <select
-												id="disabledSelect" class="form-control">
-												<option>Disabled select</option>
-											</select>
+											<label for="file">File</label> <input type="file" id="file"
+												name="file" data-custom-on-change="vm.fileSelected">
+											<p class="help-block">This file is
+												{{vm.selectedFileSize}}</p>
 										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox">Disabled
-												Checkbox
-											</label>
+
+										<button type="submit" class="btn btn-primary"
+											data-ng-disabled="vm.file == null"
+											data-ng-click="vm.uploadFile()">Submit</button>
+									</form>
+
+									<div class="panel panel-primary"
+										data-ng-show="vm.uploadResponse != null || vm.errorOccurred">
+
+										<div class="panel-heading">Upload Result</div>
+
+										<div class="panel-body">
+
+											<div data-ng-show="vm.errorOccurred">
+												Sorry, an error occurred. Hopefully the response body helps:
+												<pre class="error-json">
+                    </pre>
+											</div>
+
+											<div data-ng-show="!vm.errorOccurred">
+
+												<div class="form-group">
+													<label for="responseDate">Path</label> <input disabled
+														class="form-control" name="path" id="path"
+														value="{{vm.submittedUrl}}">
+												</div>
+
+												<div class="form-group">
+													<label for="responseDate">Submission time</label> <input
+														disabled class="form-control" name="responseDate"
+														id="responseDate"
+														value="{{vm.response.date | date:'yyyy-MM-dd HH:mm:ss Z'}}">
+												</div>
+
+												<div class="form-group">
+													<label for="responsePartInputStreamType">Part-or-MultipartFile
+														input stream type</label> <input disabled class="form-control"
+														name="responsePartInputStreamType"
+														id="responsePartInputStreamType"
+														value="{{vm.response.inputStreamType}}">
+												</div>
+
+												<div class="form-group">
+													<label for="requestType">Request type</label> <input
+														disabled class="form-control" name="requestType"
+														id="requestType" value="{{vm.response.requestType}}">
+												</div>
+
+												<div class="form-group">
+													<label for="requestType">Multipart Resolver Type
+														(whether or not it was used)</label> <input disabled
+														class="form-control" name="multipartResolverType"
+														id="multipartResolverType"
+														value="{{vm.response.multipartResolverType}}">
+												</div>
+
+												<div class="form-group">
+													<label for="requestType">File size threshold</label> <input
+														disabled class="form-control" name="fileSizeThreshold"
+														id="fileSizeThreshold"
+														value="{{vm.response.fileSizeThreshold}}">
+												</div>
+											</div>
+
 										</div>
-										<button type="submit" class="btn btn-primary">Disabled
-											Button</button>
-									</fieldset>
-								</form>
-								<h1>Form Validation States</h1>
-								<form role="form">
-									<div class="form-group has-success">
-										<label class="control-label" for="inputSuccess">Input
-											with success</label> <input type="text" class="form-control"
-											id="inputSuccess">
 									</div>
-									<div class="form-group has-warning">
-										<label class="control-label" for="inputWarning">Input
-											with warning</label> <input type="text" class="form-control"
-											id="inputWarning">
-									</div>
-									<div class="form-group has-error">
-										<label class="control-label" for="inputError">Input
-											with error</label> <input type="text" class="form-control"
-											id="inputError">
-									</div>
-								</form>
-								<h1>Input Groups</h1>
-								<form role="form">
-									<div class="form-group input-group">
-										<span class="input-group-addon">@</span> <input type="text"
-											class="form-control" placeholder="Username">
-									</div>
-									<div class="form-group input-group">
-										<input type="text" class="form-control"> <span
-											class="input-group-addon">.00</span>
-									</div>
-									<div class="form-group input-group">
-										<span class="input-group-addon"><i class="fa fa-eur"></i>
-										</span> <input type="text" class="form-control"
-											placeholder="Font Awesome Icon">
-									</div>
-									<div class="form-group input-group">
-										<span class="input-group-addon">$</span> <input type="text"
-											class="form-control"> <span class="input-group-addon">.00</span>
-									</div>
-									<div class="form-group input-group">
-										<input type="text" class="form-control"> <span
-											class="input-group-btn">
-											<button class="btn btn-default" type="button">
-												<i class="fa fa-search"></i>
-											</button>
-										</span>
-									</div>
-								</form>
+
+								</div>
 							</div>
-							<!-- /.col-lg-6 (nested) -->
 						</div>
 						<!-- /.row (nested) -->
 					</div>
@@ -194,7 +215,9 @@
 			<!-- /.col-lg-12 -->
 		</div>
 		<!-- /.row -->
+
 	</div>
+
 	<!-- /#page-wrapper -->
 
 </div>

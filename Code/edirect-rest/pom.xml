@@ -5,7 +5,7 @@
 	<artifactId>edirect-rest</artifactId>
 	<groupId>online.edirect.rest</groupId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -16,8 +16,7 @@
 
 
 	<properties>
-		<java.version>1.8</java.version>
-		<tomcat.version>8.0.3</tomcat.version>
+
 		<mybatis.version>3.4.2</mybatis.version>
 		<mybatis-spring.version>1.3.1</mybatis-spring.version>
 		<spring-boot.version>1.4.5.RELEASE</spring-boot.version>

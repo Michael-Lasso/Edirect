@@ -4,26 +4,86 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="online.edirect.connector.mapper.ObjectDao">
-	<select id="selectCityById" resultType="City">
-		select name from city
-		where id = #{id}
-	</select>
-	<select id="selectAllCities" resultType="Hotel" parameterType="java.lang.Integer">
-		select * from hotel where city >= #{criteria}
-	</select>
 
 	<!-- Create statements -->
-	<insert id="save_category" parameterType="Category"
+	<insert id="create_category" parameterType="Category"
 		useGeneratedKeys="true" keyProperty="category_id">
 		<![CDATA[
 			insert into category(category_name, description) values(#{category_name}, #{description})
 		]]>
 	</insert>
 
-	<insert id="save_product" parameterType="Product"
-		useGeneratedKeys="true" keyProperty="category_id">
+	<insert id="create_product" parameterType="Product"
+		useGeneratedKeys="true" keyProperty="product_id">
 		<![CDATA[
-			insert into product(category_name, description) values(#{category_name}, #{description})
+			insert into product(category_id, product_name, description, featured_product, company_name, buy_price,
+				sell_price, packaging, video_link, treshold_max, treshold_min, weight, dimension, logistic_price,
+				featured_product_date, created_date, updated_date, tarif, over_stock_days, percentage_deal,
+				season_reup_alert_days, season_reup_alert_date, tags) 
+			values(#{category_id},#{product_name},#{description},#{featured_product},#{company_name},#{buy_price},
+				#{sell_price},#{packaging},#{video_link},#{treshold_max},#{treshold_min},#{weight},#{dimension},#{logistic_price},
+				#{featured_product_date},#{created_date},#{updated_date},#{tarif},#{over_stock_days},#{percentage_deal},
+				#{season_reup_alert_days},#{season_reup_alert_date},#{tags})
+		]]>
+	</insert>
+
+	<insert id="create_warehouse" parameterType="Warehouse"
+		useGeneratedKeys="true" keyProperty="warehouse_id">
+		<![CDATA[
+			insert into warehouse(warehouse_name, street, city, state, zip_code, country, phone_number) 
+			values(#{warehouse_name},#{street},#{city},#{state},#{zip_code},#{country},#{phone_number})
+		]]>
+	</insert>
+
+	<insert id="create_administrator" parameterType="Administrator"
+		useGeneratedKeys="true" keyProperty="admin_id">
+		<![CDATA[
+			insert into administrator(warehouse_id, first_name, last_name, street, city, state, zip_code, country, phone_number, 
+				email, password, permissions,salt) 
+			values(#{warehouse_id},#{first_name},#{last_name},#{street},#{city},#{state},#{zip_code},#{country},
+				#{phone_number},#{email},#{password},#{permissions},#{salt})
+		]]>
+	</insert>
+
+	<insert id="create_email_alert" parameterType="EmailAlert"
+		useGeneratedKeys="true" keyProperty="alert_id">
+		<![CDATA[
+			insert into email_alert(type_id, alert_name, property_id, description, created_date) 
+			values(#{type_id},#{alert_name},#{property_id},#{description},#{created_date})		
+		]]>
+	</insert>
+
+	<insert id="create_deal" parameterType="Deal"
+		useGeneratedKeys="true" keyProperty="deal_id">
+		<![CDATA[
+			insert into deal(category_id, product_id, deal_name, start_date, end_date) 
+			values(#{category_id},#{product_id},#{deal_name},#{start_date},#{end_date})
+		]]>
+	</insert>
+
+	<insert id="create_affiliated_company" parameterType="AffiliatedCompany"
+		useGeneratedKeys="true" keyProperty="company_id">
+		<![CDATA[
+			insert into affiliated_company(discount_id, start_affiliated_date, end_affiliated_date, company_name, street, city,
+				state, zip_code, country, phone_number, company_email) 
+			values(#{discount_id},#{start_affiliated_date},#{end_affiliated_date},#{company_name},#{street},#{city},
+				#{state},#{zip_code},#{country},#{phone_number},#{company_email})
+		]]>
+	</insert>
+
+	<insert id="create_discount_code" parameterType="DiscountCode"
+		useGeneratedKeys="true" keyProperty="discount_id">
+		<![CDATA[
+			insert into discount_code(category_id, start_date, end_date, discount_name, discount_code, salt) 
+			values(#{category_id},#{start_date},#{end_date},#{discount_name},#{discount_code}, #{salt})
+		]]>
+	</insert>
+
+	<insert id="create_image" parameterType="Image"
+		useGeneratedKeys="true" keyProperty="image_id">
+		<![CDATA[
+			insert into image(product_id, image_name, url) 
+			values(#{product_id},#{image_name},#{url})
 		]]>
 	</insert>
 

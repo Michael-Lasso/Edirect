@@ -1,10 +1,14 @@
 package online.edirect.connector.domain;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.mysql.jdbc.Blob;
+import org.apache.log4j.Logger;
 
 public class Product {
+	public static final Logger log = Logger.getLogger(Product.class);
+
 	private long product_id;
 	private int category_id;
 	private String product_name;
@@ -21,12 +25,30 @@ public class Product {
 	private String dimension;
 	private double logistic_price;
 	private Date featured_product_date;
-	private Date update_date;
+	private Date created_date;
+	private Date updated_date;
 	private double tarif;
 	private int over_stock_days;
 	private double percentage_deal;
 	private int season_reup_alert_days;
 	private Date season_reup_alert_date;
+	private String tags;
+
+	public Date getCreated_date() {
+		return created_date == null ? new Date() : created_date;
+	}
+
+	public void setCreated_date(Date created_date) {
+		this.created_date = created_date;
+	}
+
+	public String getTags() {
+		return tags;
+	}
+
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
 
 	public long getProduct_id() {
 		return product_id;
@@ -173,11 +195,11 @@ public class Product {
 	}
 
 	public java.util.Date getUpdate_date() {
-		return update_date;
+		return updated_date;
 	}
 
-	public void setUpdate_date(java.util.Date update_date) {
-		this.update_date = update_date;
+	public void setUpdated_date(java.util.Date updated_date) {
+		this.updated_date = updated_date;
 	}
 
 	public double getTarif() {
@@ -196,24 +218,55 @@ public class Product {
 		this.percentage_deal = percentage_deal;
 	}
 
-	public java.util.Date getSeason_reup_alert_date() {
+	public Date getSeason_reup_alert_date() {
 		return season_reup_alert_date;
 	}
 
-	public void setSeason_reup_alert_date(java.util.Date season_reup_alert_date) {
-		this.season_reup_alert_date = season_reup_alert_date;
+	public void setSeason_reup_alert_date(Object season_reup_alert_date) {
+		if (season_reup_alert_date == null) {
+			throw new IllegalArgumentException("Wrong argument pass for season_reup_alert_date (null)");
+		}
+		if (season_reup_alert_date instanceof Date) {
+			this.season_reup_alert_date = (Date) season_reup_alert_date;
+		} else if (season_reup_alert_date instanceof String) {
+			DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			Date startDate;
+			try {
+				startDate = df.parse((String) season_reup_alert_date);
+				String newDateString = df.format(startDate);
+				System.out.println(newDateString);
+				this.season_reup_alert_date = startDate;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			throw new IllegalArgumentException(
+					"Wrong argument pass for season_reup_alert_date" + season_reup_alert_date.getClass());
+		}
+		log.info("1. date passed: " + season_reup_alert_date);
+	}
+
+	public void setSeason_reup_alert_date(String season_reup_alert_date) {
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Date startDate;
+		try {
+			startDate = df.parse((String) season_reup_alert_date);
+			this.season_reup_alert_date = startDate;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public String toString() {
 		return "product_id: " + product_id + ", category_id: " + category_id + ", product_name: " + product_name
 				+ ", description: " + description + ", featured_product: " + featured_product + ", company_name: "
-				+ company_name + ", buy_price: " + buy_price + ", sell_price: " + sell_price + ", packaging: " + packaging
-				+ ", video_link: " + video_link + ", treshold_max: " + treshold_max + ", treshold_min: " + treshold_min
-				+ ", weight: " + weight + ", dimension: " + dimension + ", logistic_price: " + logistic_price
-				+ ", featured_product_date: " + featured_product_date + ", update_date: " + update_date + ", tarif: "
-				+ tarif + ", over_stock_days: " + over_stock_days + ", percentage_deal: " + percentage_deal
-				+ ", season_reup_alert_days: " + season_reup_alert_days + ", season_reup_alert_date: "
+				+ company_name + ", buy_price: " + buy_price + ", sell_price: " + sell_price + ", packaging: "
+				+ packaging + ", video_link: " + video_link + ", treshold_max: " + treshold_max + ", treshold_min: "
+				+ treshold_min + ", weight: " + weight + ", dimension: " + dimension + ", logistic_price: "
+				+ logistic_price + ", featured_product_date: " + featured_product_date + ", update_date: "
+				+ updated_date + ", tarif: " + tarif + ", over_stock_days: " + over_stock_days + ", percentage_deal: "
+				+ percentage_deal + ", season_reup_alert_days: " + season_reup_alert_days + ", season_reup_alert_date: "
 				+ season_reup_alert_date;
 	}
 

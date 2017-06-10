@@ -17,5 +17,35 @@
 		]]>
 	</select>
 
+	<select id="retrieve_all_warehouses" resultType="Warehouse">
+	<![CDATA[
+		select * from warehouse
+		]]>
+	</select>
+
+	<select id="retrieve_categories_set" resultType="java.lang.String">
+	<![CDATA[
+		select category_name from category
+		]]>
+	</select>
+
+	<select id="retrieve_product_set" resultType="java.lang.String">
+	<![CDATA[
+		select product_name from product
+		]]>
+	</select>
+
+	<select id="retrieve_watehouse_set" resultType="java.lang.String">
+	<![CDATA[
+		select warehouse_name from warehouse
+		]]>
+	</select>
+
+	<select id="retrieve_company_set" resultType="java.lang.String">
+	<![CDATA[
+		select company_name from affiliated_company
+		]]>
+	</select>
+
 
 </mapper>
