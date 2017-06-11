@@ -1,4 +1,4 @@
-package online.edirect.utils;
+package online.edirect.errors;
 
 public class ErrorRep {
 

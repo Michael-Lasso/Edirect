@@ -66,5 +66,33 @@
 		]]>
 	</select>
 
+	<select id="get_category_by_name" resultType="java.lang.String"
+		parameterType="java.lang.String">
+	<![CDATA[
+		select category_name from category where category_name = #{criteria};
+		]]>
+	</select>
+
+	<select id="get_warehouse_by_name" resultType="java.lang.String"
+		parameterType="java.lang.String">
+	<![CDATA[
+		select warehouse_name from warehouse where warehouse_name = #{criteria};
+		]]>
+	</select>
+
+	<select id="get_product_by_name" resultType="java.lang.String"
+		parameterType="java.lang.String">
+	<![CDATA[
+		select product_name from product where product_name = #{criteria};
+		]]>
+	</select>
+
+	<select id="get_company_by_name" resultType="java.lang.String"
+		parameterType="java.lang.String">
+	<![CDATA[
+		select company_name from affiliated_company where company_name = #{criteria};
+		]]>
+	</select>
+
 
 </mapper>

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import online.edirect.connector.mapper.HotelMapper;
 
 @RestController
-public class OrdersRest {
+public class Orders {
 
 	@Autowired
 	private HotelMapper hotelMapper;
@@ -21,7 +21,6 @@ public class OrdersRest {
 	@RequestMapping("/order")
 	public Map<String, Object> home() {
 		Map<String, Object> model = new HashMap<String, Object>();
-		System.out.println(hotelMapper.selectByCityId(1).getName());
 		model.put("id", UUID.randomUUID().toString());
 		model.put("content", "Order");
 		return model;

@@ -29,9 +29,9 @@ function($scope, $log) {
 
         vm.submittedUrl = 'upload/' + vm.uploadStrategy; // Just so we can display what we did in the UI
 
+        var formData = new FormData();
         formData.append('file', vm.file);
-
-        alert(token);
+        
         $.ajax({
             url: vm.submittedUrl,
             data: formData,

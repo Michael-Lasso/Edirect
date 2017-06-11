@@ -15,13 +15,10 @@
  */
 package online.edirect.connector;
 
-import java.util.List;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 
 import online.edirect.connector.dao.ObjectDao;
-import online.edirect.connector.domain.Hotel;
 import online.edirect.connector.mapper.HotelMapper;
 
 //@SpringBootApplication
@@ -43,12 +40,6 @@ public class SampleXmlApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// System.out.println(this.cityDao.selectCityById(1));
 		// System.out.println(this.hotelMapper.selectByCityId(1));
-		List<Hotel> hotels = cityDao.getList("selectAllCities", 1);
-		Hotel hotel = new Hotel();
-		hotel.setCity(2L);
-		hotel.setName("Stamford");
-//		hotelMapper.saveHotel(hotel);
-		hotels.forEach(System.out::println);
-	}
+		}
 
 }

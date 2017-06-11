@@ -1,4 +1,4 @@
-package online.edirect.utils;
+package online.edirect.rest.service;
 
 /**
  * The response from a file upload POST.

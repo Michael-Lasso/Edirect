@@ -15,11 +15,7 @@
  */
 package online.edirect.connector.mapper;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
-
-import online.edirect.connector.domain.Hotel;
 
 /**
  * @author Eduardo Macarron
@@ -27,12 +23,5 @@ import online.edirect.connector.domain.Hotel;
 @Mapper
 public interface HotelMapper {
 
-	Hotel selectByCityId(int city_id);
-
-	List<Hotel> allHotels();
-
-	Hotel isHotelExist(Hotel city);
-
-	void saveHotel(Hotel city);
 
 }

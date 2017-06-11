@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package online.edirect.rest;
+package online.edirect.rest.service;
 
 import org.springframework.hateoas.ResourceSupport;
 

@@ -1,8 +1,5 @@
 package online.edirect.rest;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.annotation.PostConstruct;
 
 import org.apache.log4j.Logger;
@@ -31,31 +28,24 @@ import online.edirect.utils.QueryId;
 
 @RestController
 @RequestMapping("/create")
-public class CreateRest {
-	public static final Logger log = Logger.getLogger(CreateRest.class);
+public class Create {
+	public static final Logger log = Logger.getLogger(Create.class);
 
 	@Autowired
 	private ObjectDao dao;
 
-	private Set<String> categories;
-	private Set<String> products;
-	private Set<String> warehouses;
-	private Set<String> companies;
-
 	@PostConstruct
 	public void init() {
-		log.info("Initializing Rest create controller");
 		try {
-			categories = new HashSet<>(dao.getList(QueryId.SET_CATEGORY, null));
-			products = new HashSet<>(dao.getList(QueryId.SET_PRODUCT, null));
-			warehouses = new HashSet<>(dao.getList(QueryId.SET_WAREHOUSE, null));
-			companies = new HashSet<>(dao.getList(QueryId.SET_COMPANY, null));
+			log.info("Initializing Rest create controller");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	/**
+	 * Persists category into DB, if conflict, category name already exists.
+	 * 
 	 * @param category
 	 * @param ucBuilder
 	 * @return
@@ -65,57 +55,77 @@ public class CreateRest {
 	@RequestMapping(value = "/category", method = RequestMethod.POST)
 	public ResponseEntity<?> createCategory(@RequestBody Category category, UriComponentsBuilder ucBuilder)
 			throws Exception {
-		String name = category.getCategory_name();
-		if (name == null || categories.contains(name)) {
+		String name = dao.getEdirectRecord(QueryId.GET_CATEGORY_BY_NAME, category.getCategory_name());
+		if (name != null) {
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
 		}
 		dao.insertQuery(QueryId.CREATE_CATEGORY, category);
-		warehouses.add(name);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/api/create/{id}").buildAndExpand(category.getCategory_name()).toUri());
 		return new ResponseEntity<String>(headers, HttpStatus.CREATED);
 	}
 
+	/**
+	 * Persists product into DB, if conflict, product name already exists.
+	 * 
+	 * @param product
+	 * @param ucBuilder
+	 * @return
+	 * @throws Exception
+	 */
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/product", method = RequestMethod.POST)
 	public ResponseEntity<?> createProduct(@RequestBody Product product, UriComponentsBuilder ucBuilder)
 			throws Exception {
-		String name = product.getProduct_name();
-		if (name == null || products.contains(name)) {
+		String name = dao.getEdirectRecord(QueryId.GET_PRODUCT_BY_NAME, product.getProduct_name());
+		if (name != null) {
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
 		}
 		dao.insertQuery(QueryId.CREATE_PRODUCT, product);
-		products.add(name);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/api/create/{id}").buildAndExpand(product.getProduct_name()).toUri());
 		return new ResponseEntity<String>(headers, HttpStatus.CREATED);
 	}
 
+	/**
+	 * Persists warehouse into DB, if conflict, warehouse name already exists.
+	 * 
+	 * @param warehouse
+	 * @param ucBuilder
+	 * @return
+	 * @throws Exception
+	 */
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/warehouse", method = RequestMethod.POST)
 	public ResponseEntity<?> createWarehouse(@RequestBody Warehouse warehouse, UriComponentsBuilder ucBuilder)
 			throws Exception {
-		String name = warehouse.getWarehouse_name();
-		if (name == null || warehouses.contains(name)) {
+		String name = dao.getEdirectRecord(QueryId.GET_WAREHOUSE_BY_NAME, warehouse.getWarehouse_name());
+		if (name != null) {
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
 		}
 		dao.insertQuery(QueryId.CREATE_WAREHOUSE, warehouse);
-		warehouses.add(name);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/api/create/{id}").buildAndExpand(warehouse.getWarehouse_name()).toUri());
 		return new ResponseEntity<String>(headers, HttpStatus.CREATED);
 	}
 
+	/**
+	 * Persists company into DB, if conflict, company name already exists.
+	 * 
+	 * @param company
+	 * @param ucBuilder
+	 * @return
+	 * @throws Exception
+	 */
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/affiliated_company", method = RequestMethod.POST)
 	public ResponseEntity<?> createCompany(@RequestBody AffiliatedCompany company, UriComponentsBuilder ucBuilder)
 			throws Exception {
-		String name = company.getCompany_name();
-		if (name == null || companies.contains(name)) {
+		String name = dao.getEdirectRecord(QueryId.GET_COMPANY_BY_NAME, company.getCompany_name());
+		if (name != null) {
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
 		}
 		dao.insertQuery(QueryId.CREATE_AFFILIATED_COMPANY, company);
-		companies.add(name);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/api/create/{id}").buildAndExpand(name).toUri());
 		return new ResponseEntity<String>(headers, HttpStatus.CREATED);

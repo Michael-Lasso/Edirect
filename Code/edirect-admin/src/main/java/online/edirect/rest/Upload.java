@@ -25,12 +25,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartResolver;
 
-import online.edirect.utils.UploadResponseRep;
+import online.edirect.rest.service.UploadResponseRep;
 
 @RestController
 @RequestMapping("/upload")
-public class UploadController {
-	public static final Logger log = Logger.getLogger(UploadController.class);
+public class Upload {
+	public static final Logger log = Logger.getLogger(Upload.class);
 	/**
 	 * Injected just so we can return information about it. If Spring's
 	 * multipart support is enabled in {@code application.properties}, and/or we

@@ -19,15 +19,15 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import online.edirect.connector.dao.ObjectDao;
 import online.edirect.connector.domain.Category;
-import online.edirect.connector.domain.Hotel;
+import online.edirect.connector.domain.Users;
 import online.edirect.connector.mapper.HotelMapper;
-import online.edirect.utils.CustomErrorType;
+import online.edirect.errors.CustomErrorType;
 import online.edirect.utils.QueryId;
 
 @RestController
 @RequestMapping("/product")
-public class ProductsRest {
-	public static final Logger logger = Logger.getLogger(ProductsRest.class);
+public class Products {
+	public static final Logger logger = Logger.getLogger(Products.class);
 
 	@Autowired
 	private HotelMapper hotelMapper;
@@ -48,11 +48,11 @@ public class ProductsRest {
 	// User-------------------------------------------
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ResponseEntity<?> createUser(@RequestBody Hotel user, UriComponentsBuilder ucBuilder) {
+	public ResponseEntity<?> createUser(@RequestBody Users user, UriComponentsBuilder ucBuilder) {
 		logger.info("Creating User : {" + user + "}");
 
-		if (hotelMapper.isHotelExist(user) != null) {
-			logger.info("Unable to create. A User with name {} already exist: " + user.getName());
+		if (user != null) {
+			logger.info("Unable to create. A User with name {} already exist: " + user.toString());
 			// return new ResponseEntity<CustomErrorType>(
 			// new CustomErrorType("Unable to create. A User with name " +
 			// user.getName() + " already exist."),
@@ -69,7 +69,7 @@ public class ProductsRest {
 		// hotelMapper.saveCategory(cat);
 		logger.info("Created: " + user.toString());
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/api/product/{id}").buildAndExpand(user.getCity()).toUri());
+		headers.setLocation(ucBuilder.path("/api/product/{id}").buildAndExpand(user.toString()).toUri());
 		return new ResponseEntity<String>(headers, HttpStatus.CREATED);
 	}
 

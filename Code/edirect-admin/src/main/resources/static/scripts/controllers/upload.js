@@ -8,7 +8,7 @@ angular.module('edirect.upload', [ 'ngRoute' ]).config(
 			});
 
 		}).controller('upload', function($scope, $http, $log) {
-	$http.get('/edirect-admin/upload/inventory').success(function(response) {
+	$http.get('upload/inventory').success(function(response) {
 		$scope.content = response.content;
 		$scope.stat = "a test 1"
 	}).error(function(data, status, headers, config) {
