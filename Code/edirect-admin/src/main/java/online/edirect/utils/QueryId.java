@@ -20,6 +20,7 @@ public class QueryId {
 	public static final String SET_COMPANY = "retrieve_company_set";
 	public static final String RETRIEVE_ALL_CATEGORIES = "retrieve_all_categories";
 	public static final String RETRIEVE_ALL_WAREHOUSES = "retrieve_all_warehouses";
+	public static final String RETRIEVE_ALL_PRODUCTS = "retrieve_all_products";
 
 	// -----------------------DELETE-------------------
 	public static final String DELETE_CATEGORY = "delete_category";

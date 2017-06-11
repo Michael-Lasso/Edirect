@@ -7,43 +7,62 @@
 	<select id="select_category" resultType="java.lang.Integer"
 		parameterType="java.lang.String">
 	<![CDATA[
-		select category_id from category where category_name = #{criteria}
+		select category_id from category where category_name = #{criteria};
 		]]>
 	</select>
 
 	<select id="retrieve_all_categories" resultType="Category">
 	<![CDATA[
-		select * from category
+		select * from category;
 		]]>
 	</select>
 
 	<select id="retrieve_all_warehouses" resultType="Warehouse">
 	<![CDATA[
-		select * from warehouse
+		select * from warehouse;
+		]]>
+	</select>
+
+	<select id="retrieve_all_products" resultType="Product">
+	<![CDATA[
+		SELECT 
+		    p.*, c.category_name, ci.quantity
+		FROM
+		    product p,
+		    category c,
+		    (SELECT 
+		        p.product_id, COUNT(i.product_id) AS quantity
+		    FROM
+		        product p
+		    LEFT JOIN inventory i ON (p.product_id = i.product_id)
+		    GROUP BY p.product_id) ci
+		WHERE
+		    c.category_id = p.category_id
+		        AND ci.product_id = p.product_id
 		]]>
 	</select>
 
 	<select id="retrieve_categories_set" resultType="java.lang.String">
 	<![CDATA[
-		select category_name from category
+		select category_name from category;
 		]]>
 	</select>
 
 	<select id="retrieve_product_set" resultType="java.lang.String">
 	<![CDATA[
-		select product_name from product
+		select product_name from product;
 		]]>
 	</select>
 
 	<select id="retrieve_watehouse_set" resultType="java.lang.String">
 	<![CDATA[
-		select warehouse_name from warehouse
+		select warehouse_name from warehouse;
 		]]>
 	</select>
 
 	<select id="retrieve_company_set" resultType="java.lang.String">
 	<![CDATA[
-		select company_name from affiliated_company
+		select company_name from affiliated_company;
 		]]>
 	</select>
 

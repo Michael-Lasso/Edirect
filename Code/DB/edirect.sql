@@ -114,6 +114,7 @@ CREATE TABLE re_stock_item (
 
 CREATE TABLE inventory (
     serial_number VARCHAR(100) NOT NULL,
+	product_id BIGINT NOT NULL,
     restock_id BIGINT NOT NULL,
     entry_date DATE NOT NULL,
     exit_date DATE,
@@ -126,7 +127,9 @@ CREATE TABLE inventory (
     available BOOLEAN NOT NULL,
     PRIMARY KEY (`serial_number`),
     CONSTRAINT inventory_fk_restock FOREIGN KEY (restock_id)
-        REFERENCES re_stock_item (restock_id)
+        REFERENCES re_stock_item (restock_id),
+    CONSTRAINT inventory_fk_product FOREIGN KEY (product_id)
+        REFERENCES product (product_id)
 )  ENGINE=INNODB DEFAULT CHARSET=LATIN1;
 
 CREATE TABLE product_order (

@@ -2,81 +2,21 @@
 	<div id="wrapper">
 		<!-- /.row -->
 		<div class="row">
-			<div class="col-lg-4">
+			<div data-ng-repeat="product in products" class="col-sm-4">
 				<div class="panel panel-primary">
-					<div class="panel-heading panel-custom">Electronica</div>
+					<div class="panel-heading panel-custom">{{product.category_name}}</div>
 					<div class="panel-body">
-						<p>Producto: Cargador de telefono</p>
-						<p>Descripcion: Cargador para telefono android galaxy</p>
-						<p>Precio: 40,000$</p>
-						<p>Cantidad: 3</p>
+						<p>Product: {{product.product_name}}</p>
+						<p>Description: {{product.description}}</p>
+						<p>Sell Price: {{product.sell_price}}</p>
+						<p>Quantity: {{product.quantity}}</p>
 					</div>
-					<div class="panel-footer">Identificador: 0289281</div>
+					<div class="panel-footer">Identificator: {{product.product_id}}</div>
 				</div>
 			</div>
-			<div class="col-lg-4">
-				<div class="panel panel-primary">
-					<div class="panel-heading panel-custom">Electronica</div>
-					<div class="panel-body">
-						<p>Producto: Cargador de telefono</p>
-						<p>Descripcion: Cargador para telefono android galaxy</p>
-						<p>Precio: 40,000$</p>
-						<p>Cantidad: 3</p>
-					</div>
-					<div class="panel-footer">Identificador: 0289281</div>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="panel panel-primary">
-					<div class="panel-heading panel-custom">Electronica</div>
-					<div class="panel-body">
-						<p>Producto: Cargador de telefono</p>
-						<p>Descripcion: Cargador para telefono android galaxy</p>
-						<p>Precio: 40,000$</p>
-						<p>Cantidad: 3</p>
-					</div>
-					<div class="panel-footer">Identificador: 0289281</div>
-				</div>
-			</div>
+			
 		</div>
-		<div class="row">
-			<div class="col-lg-4">
-				<div class="panel panel-primary">
-					<div class="panel-heading panel-custom">Electronica</div>
-					<div class="panel-body">
-						<p>Producto: Cargador de telefono</p>
-						<p>Descripcion: Cargador para telefono android galaxy</p>
-						<p>Precio: 40,000$</p>
-						<p>Cantidad: 3</p>
-					</div>
-					<div class="panel-footer">Identificador: 0289281</div>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="panel panel-primary">
-					<div class="panel-heading panel-custom">Electronica</div>
-					<div class="panel-body">
-						<p>Producto: Cargador de telefono</p>
-						<p>Descripcion: Cargador para telefono android galaxy</p>
-						<p>Precio: 40,000$</p>
-						<p>Cantidad: 3</p>
-					</div>
-					<div class="panel-footer">Identificador: 0289281</div>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="panel panel-primary">
-					<div class="panel-heading panel-custom">Electronica</div>
-					<div class="panel-body">
-						<p>Producto: Cargador de telefono</p>
-						<p>Descripcion: Cargador para telefono android galaxy</p>
-						<p>Precio: 40,000$</p>
-						<p>Cantidad: 3</p>
-					</div>
-					<div class="panel-footer">Identificador: 0289281</div>
-				</div>
-			</div>
-		</div>
+		
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="jumbotron">
@@ -91,7 +31,8 @@
 						Zip: <input type="number" name="zip" data-ng-model="zip" required />
 					</p>
 					<p>
-						City: <input type="number" name="city" data-ng-model="city" required />
+						City: <input type="number" name="city" data-ng-model="city"
+							required />
 					</p>
 					<button data-ng-click="SendData()">Submit</button>
 					<hr />

@@ -27,12 +27,8 @@ function($scope, $log) {
 
     vm.uploadFile = function() {
 
-        vm.submittedUrl = '/edirect-admin/upload/' + vm.uploadStrategy; // Just so we can display what we did in the UI
+        vm.submittedUrl = 'upload/' + vm.uploadStrategy; // Just so we can display what we did in the UI
 
-        var formData = new FormData();
-        var token = $("meta[name='_csrf']").attr("content");
-        var header = $("meta[name='_csrf_header']").attr("content");
-        
         formData.append('file', vm.file);
 
         alert(token);

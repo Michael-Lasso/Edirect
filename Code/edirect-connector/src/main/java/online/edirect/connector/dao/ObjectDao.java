@@ -17,13 +17,10 @@ package online.edirect.connector.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
-import online.edirect.connector.domain.Category;
-import online.edirect.connector.domain.City;
 import online.edirect.connector.service.EdirectRecord;
 
 /**

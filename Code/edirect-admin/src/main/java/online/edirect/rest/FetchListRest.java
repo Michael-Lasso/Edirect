@@ -3,14 +3,9 @@ package online.edirect.rest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.hateoas.Resources;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,17 +53,12 @@ public class FetchListRest implements FetchListService {
 	// -------------------Create a
 	// category-------------------------------------------
 	@PreAuthorize("hasRole('ADMIN')")
-	@RequestMapping(value = "/product", method = RequestMethod.POST)
-	public ResponseEntity<?> createProduct(@RequestBody Product product, UriComponentsBuilder ucBuilder)
-			throws Exception {
-		log.info("Creating Product : {" + product + "}");
-
-		dao.insertQuery(QueryId.CREATE_PRODUCT, product);
-
-		// hotelMapper.saveCategory(cat);
-		log.info("Created: " + product.toString());
-		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/api/create/{id}").buildAndExpand(product.getProduct_name()).toUri());
-		return new ResponseEntity<String>(headers, HttpStatus.CREATED);
+	@RequestMapping(value = "/products", method = RequestMethod.GET)
+	public Map<String, Object> getProducts() throws Exception {
+		Map<String, Object> model = new HashMap<String, Object>();
+		List<Product> products = dao.getList(QueryId.RETRIEVE_ALL_PRODUCTS, null);
+		products.forEach(log::info);
+		model.put("content", products);
+		return model;
 	}
 }

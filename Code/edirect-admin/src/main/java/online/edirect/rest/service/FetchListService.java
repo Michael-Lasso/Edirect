@@ -31,6 +31,6 @@ public interface FetchListService{
 	// category-------------------------------------------
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/product", method = RequestMethod.POST)
-	public ResponseEntity<?> createProduct(@RequestBody Product product, UriComponentsBuilder ucBuilder)
+	public Map<String, Object> getProducts()
 			throws Exception; 
 }

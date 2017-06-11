@@ -58,10 +58,10 @@ angular
 								description : $scope.category_description
 							}
 						}
-
 						$http(req).success(
 								function(data, status, headers, config) {
-									alert("Category created")
+									alert("Category created: "
+											+ $scope.category_name)
 								}).error(
 								function(data, status, headers, config) {
 									alert("Category was not created")

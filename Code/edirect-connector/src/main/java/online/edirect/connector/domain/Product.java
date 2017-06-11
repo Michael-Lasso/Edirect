@@ -12,6 +12,7 @@ public class Product {
 	private long product_id;
 	private int category_id;
 	private String product_name;
+	private String category_name;
 	private String description;
 	private boolean featured_product;
 	private String company_name;
@@ -33,6 +34,27 @@ public class Product {
 	private int season_reup_alert_days;
 	private Date season_reup_alert_date;
 	private String tags;
+	private long quantity;
+
+	public long getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(long quantity) {
+		this.quantity = quantity;
+	}
+
+	public Date getUpdated_date() {
+		return updated_date;
+	}
+
+	public String getCategory_name() {
+		return category_name;
+	}
+
+	public void setCategory_name(String category_name) {
+		this.category_name = category_name;
+	}
 
 	public Date getCreated_date() {
 		return created_date == null ? new Date() : created_date;
